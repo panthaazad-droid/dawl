@@ -83,11 +83,17 @@ export default async function PostersPage() {
                       </div>
 
                       <div className="relative h-[260px] rounded-2xl bg-muted border border-border overflow-hidden">
-                        <iframe
-                          src={`${poster.pdf}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                          title={`${poster.title} PDF preview`}
-                          className="h-full w-full pointer-events-none"
-                        />
+                        {"preview" in poster && poster.preview ? (
+                          <img
+                            src={poster.preview}
+                            alt={`${poster.title} poster preview`}
+                            className="h-full w-full object-cover object-top"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center p-6 text-center text-sm text-muted-foreground">
+                            Poster preview available in the PDF
+                          </div>
+                        )}
                       </div>
                     </div>
 

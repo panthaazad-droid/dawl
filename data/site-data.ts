@@ -490,6 +490,7 @@ export const posters = [
     abstract:
       "This study uses UAV RGB and multispectral imagery to estimate crop and weed cover, relate weed ground cover to yield loss, and identify the critical period for weed control in corn.",
     pdf: "/posters/Kenneth_CPWC_2026_Critical_Weed_Control.pdf",
+    preview: "/posters/previews/Kenneth_CPWC_2026_Critical_Weed_Control.jpg",
   },
   {
     title:
@@ -501,6 +502,7 @@ export const posters = [
     abstract:
       "This poster evaluates UAV-LiDAR for tracking soybean canopy height, ground cover, and management responses under weed competition across seeding-rate and row-spacing treatments.",
     pdf: "/posters/Matt_Fallis_Digital_Ag_Soybean_LiDAR.pdf",
+    preview: "/posters/previews/Matt_Fallis_Digital_Ag_Soybean_LiDAR.jpg",
   },
   {
     title:
@@ -513,6 +515,7 @@ export const posters = [
     abstract:
       "This study evaluates temporal changes in UAV-derived vegetation indices, including NDVI, SAVI, VARI, and CI_RE, and their relationships with grain moisture during dry bean maturation and dry-down.",
     pdf: "/posters/Mujahid_Hussain_Dry_Bean_Harvest_Readiness.pdf",
+    preview: "/posters/previews/Mujahid_Hussain_Dry_Bean_Harvest_Readiness.jpg",
   },
   {
     title:
@@ -524,6 +527,7 @@ export const posters = [
     abstract:
       "This poster examines how multispectral and LiDAR-derived measurements can quantify soybean canopy development and weed competition under different seeding rates, row spacings, and weed conditions.",
     pdf: "/posters/Matt_Fallis_MAC_2025_Soybean_LiDAR.pdf",
+    preview: "/posters/previews/Matt_Fallis_MAC_2025_Soybean_LiDAR.jpg",
   },
   {
     title:
@@ -535,6 +539,7 @@ export const posters = [
     abstract:
       "This study evaluates alternative wheat seeding systems and planting times as non-chemical strategies for reducing kochia seed production and extending the management window for weed seed control.",
     pdf: "/posters/Shamima_Sultana_Kochia_Seed_Production.pdf",
+    preview: "/posters/previews/Shamima_Sultana_Kochia_Seed_Production.jpg",
   },
   {
     title:
@@ -546,6 +551,7 @@ export const posters = [
     abstract:
       "This poster presents a visual workflow for UAV-based field imaging, including flight planning, drone data collection, image capture, image processing, map generation, and interpretation of crop and field variability for research and agronomic decision-making.",
     pdf: "/posters/CDS_Drone_Workflow.pdf",
+    preview: "/posters/previews/CDS_Drone_Workflow.jpg",
   },
   {
     title:
@@ -558,6 +564,19 @@ export const posters = [
     abstract:
       "This poster presents UAV-LiDAR approaches for evaluating best management practices in field pea. The study demonstrates how LiDAR-derived crop height, canopy volume, and structural measurements can help distinguish management responses and support data-driven recommendations for seeding rates and sowing times.",
     pdf: "/posters/Pantha_MAC_Poster.pdf",
+    preview: "/posters/previews/Pantha_MAC_Poster.jpg",
+  },
+  {
+    title:
+      "UAV-Based Digital Phenotyping for Growth and Biomass Monitoring in Pulse Crops",
+    authors: "Kenneth Anku",
+    event: "Canadian Pulse Research Workshop",
+    year: "2026",
+    type: "Research Poster",
+    abstract:
+      "This poster presents research related to pulse crop monitoring and digital agriculture, highlighting how field-based and remote-sensing approaches can support crop assessment, management, and producer-focused decision-making.",
+    pdf: "/posters/Kenneth_CPWC_2026.pdf",
+    preview: "/posters/previews/Kenneth_CPWC_2026.jpg",
   },
 ]
 
