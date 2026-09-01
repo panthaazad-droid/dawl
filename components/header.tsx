@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/data/site-data"
@@ -21,19 +22,25 @@ const navLinks = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === "/#research") return false
+    return pathname === href
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-11 w-[72px] shrink-0 overflow-hidden">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md shadow-sm ring-1 ring-black/5">
               <Image
-                src="/images/brand/dawl-header-logo.png"
+                src="/images/brand/dawl-logo.png"
                 alt="DAWL logo"
                 fill
-                className="object-contain"
-                sizes="72px"
+                className="object-cover"
+                sizes="48px"
                 priority
               />
             </div>
@@ -53,7 +60,12 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className={`relative rounded-md px-2.5 py-1.5 text-sm transition-colors ${
+                  isActive(link.href)
+                    ? "bg-primary/10 text-primary font-medium"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                }`}
+                aria-current={isActive(link.href) ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -82,7 +94,12 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className={`rounded-md px-3 py-2 text-sm transition-colors ${
+                    isActive(link.href)
+                      ? "bg-primary/10 text-primary font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                  }`}
+                  aria-current={isActive(link.href) ? "page" : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}

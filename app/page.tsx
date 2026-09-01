@@ -3,7 +3,6 @@ import { ContactCTA } from "@/components/contact-cta"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { LabStats } from "@/components/lab-stats"
 import { LatestNews } from "@/components/latest-news"
 import { Posters } from "@/components/posters"
 import { Publications } from "@/components/publications"
@@ -18,7 +17,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <LabStats />
         <About />
         <Research />
         <Team />

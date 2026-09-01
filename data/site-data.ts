@@ -116,7 +116,7 @@ export const teamMembers = {
     project: "Machine learning for weed detection",
   },
   {
-    name: "Pantha",
+    name: "Pantha Azad",
     degree: "M.Sc. Student",
     image: "/images/team/Pantho.jpg",
     project: "UAV-based crop monitoring",
