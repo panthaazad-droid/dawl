@@ -135,11 +135,6 @@ function PersonCard({ person }: { person: DetailedPerson }) {
             </Link>
           )}
 
-          {!person.email && !person.profileLink && (
-            <span className="text-sm text-muted-foreground">
-              Profile details available through DAWL.
-            </span>
-          )}
         </div>
       </div>
     </article>

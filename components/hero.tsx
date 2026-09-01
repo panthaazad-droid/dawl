@@ -108,7 +108,7 @@ export function Hero() {
 
               return (
                 <Link
-                  href="/publications"
+                  href="/#research"
                   key={feature.title}
                   className={`group rounded-2xl border border-white/18 bg-white/10 p-5 text-white shadow-lg backdrop-blur-md transition-colors hover:border-white/36 hover:bg-white/14 ${
                     isLast ? "sm:col-span-2" : ""

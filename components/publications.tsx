@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink, Link2 } from "lucide-react"
+import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { publications, siteConfig } from "@/data/site-data"
 import { getApprovedPublications } from "@/lib/google-sheet"
@@ -13,97 +13,47 @@ function getPublicationLink(doi?: string) {
   return value
 }
 
-function getTopics(title: string) {
-  const value = title.toLowerCase()
-  const topics: string[] = []
-
-  if (value.includes("weed") || value.includes("herbicide")) topics.push("Weed Science")
-  if (value.includes("uav") || value.includes("remote") || value.includes("imagery")) topics.push("Remote Sensing")
-  if (value.includes("deep learning") || value.includes("machine learning") || value.includes("segmentation")) topics.push("AI & Computer Vision")
-  if (value.includes("crop") || value.includes("agronomy") || value.includes("yield")) topics.push("Agronomy")
-
-  return topics.slice(0, 2)
-}
-
 export async function Publications() {
   const sheetPublications = await getApprovedPublications()
-  const allPublications = [...sheetPublications, ...publications]
-  const featuredPublications = allPublications.slice(0, 4)
+  const featuredPublications = [...sheetPublications, ...publications].slice(0, 4)
 
   return (
     <section id="publications" className="bg-secondary/30 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
-            Publications
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-            Recent publications
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-            Selected research outputs from DAWL and collaborators in weed
-            science, crop–weed interactions, remote sensing, and sustainable
-            agricultural systems.
-          </p>
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">Publications</p>
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Recent scholarly work</h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+              Selected peer-reviewed research from DAWL and collaborators across weed science, agronomy, remote sensing, and digital agriculture.
+            </p>
+          </div>
         </div>
 
-        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-border bg-background shadow-sm">
+        <div className="overflow-hidden rounded-3xl border border-border bg-background shadow-sm">
           {featuredPublications.map((pub, index) => {
             const publicationLink = getPublicationLink(pub.doi)
-            const topics = getTopics(pub.title)
-
             return (
-              <article
-                key={`${pub.title}-${index}`}
-                className="group grid gap-4 border-b border-border p-6 transition-colors last:border-b-0 hover:bg-secondary/30 md:grid-cols-[70px_1fr_auto] md:p-7"
-              >
-                <span className="font-mono text-sm font-medium text-primary">
-                  {pub.year || "—"}
-                </span>
-
+              <article key={`${pub.title}-${index}`} className="group grid gap-5 border-b border-border p-6 last:border-b-0 hover:bg-secondary/25 md:grid-cols-[90px_1fr_auto] md:p-8">
+                <div>
+                  <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">{pub.year || "—"}</span>
+                </div>
                 <div className="min-w-0">
-                  <h3 className="font-medium leading-snug transition-colors group-hover:text-primary md:text-lg">
-                    {publicationLink ? (
-                      <Link href={publicationLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                        {pub.title}
-                      </Link>
-                    ) : pub.title}
+                  <h3 className="text-lg font-semibold leading-snug tracking-tight transition-colors group-hover:text-primary md:text-xl">
+                    {publicationLink ? <Link href={publicationLink} target="_blank" rel="noopener noreferrer">{pub.title}</Link> : pub.title}
                   </h3>
-
-                  {pub.authors && (
-                    <p className="mt-2 text-sm text-muted-foreground">{pub.authors}</p>
-                  )}
-
+                  {pub.authors && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pub.authors}</p>}
                   {(pub.journal || pub.volume || pub.pages) && (
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <p className="mt-3 text-sm font-medium text-foreground/75">
                       {pub.journal && <span className="italic">{pub.journal}</span>}
-                      {pub.volume && <span>, {pub.volume}</span>}
-                      {pub.pages && <span>: {pub.pages}</span>}
+                      {pub.volume && <span> · {pub.volume}</span>}
+                      {pub.pages && <span> · {pub.pages}</span>}
                     </p>
                   )}
-
-                  {topics.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {topics.map((topic) => (
-                        <span key={topic} className="rounded-full bg-primary/8 px-3 py-1 text-xs font-medium text-primary">
-                          {topic}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
-
                 {publicationLink && (
-                  <Link
-                    href={publicationLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-10 items-center gap-2 self-start rounded-lg border border-border px-3 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
-                    aria-label="Open publication DOI"
-                  >
-                    <Link2 className="h-3.5 w-3.5" />
-                    DOI
-                    <ExternalLink className="h-3.5 w-3.5" />
+                  <Link href={publicationLink} target="_blank" rel="noopener noreferrer" className="inline-flex h-10 items-center gap-2 self-start rounded-lg border border-border px-4 text-sm font-medium transition-colors hover:border-primary/30 hover:text-primary">
+                    DOI <ExternalLink className="h-4 w-4" />
                   </Link>
                 )}
               </article>
@@ -111,16 +61,13 @@ export async function Publications() {
           })}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link href="/publications" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
-            View all publications
-            <ArrowRight className="h-4 w-4" />
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Link href="/publications" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+            View all publications <ArrowRight className="h-4 w-4" />
           </Link>
-
           {siteConfig.social.googleScholar && (
-            <Link href={siteConfig.social.googleScholar} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary">
-              Google Scholar
-              <ExternalLink className="h-4 w-4" />
+            <Link href={siteConfig.social.googleScholar} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium hover:bg-secondary">
+              Google Scholar <ExternalLink className="h-4 w-4" />
             </Link>
           )}
         </div>

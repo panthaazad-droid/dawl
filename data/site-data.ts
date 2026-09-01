@@ -164,6 +164,8 @@ export const teamMembers = {
     project: "Weed-crop interactions in maize",
   },
 ],
+
+  alumni: [],
 }
 
 // This keeps compatibility with any page/component that imports gradStudents directly
