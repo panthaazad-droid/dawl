@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/publications", label: "Publications" },
   { href: "/posters", label: "Posters" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/news", label: "News" },
   { href: "/opportunities", label: "Opportunities" },
   { href: "/contact", label: "Contact" },
 ]
@@ -26,12 +27,12 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-11 w-[72px] shrink-0 overflow-hidden rounded-lg shadow-sm ring-1 ring-black/5">
+            <div className="relative h-11 w-[72px] shrink-0 overflow-hidden">
               <Image
                 src="/images/brand/dawl-header-logo.png"
                 alt="DAWL logo"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="72px"
                 priority
               />
@@ -47,7 +48,7 @@ export function Header() {
             </div>
           </Link>
 
-          <div className="hidden xl:flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

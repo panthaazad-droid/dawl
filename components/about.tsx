@@ -17,22 +17,16 @@ export function About() {
               Bridging traditional weed science with digital agriculture
             </h2>
 
-            <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed text-lg">
+            <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed text-lg">
               <p>
                 The Digital Agronomy and Weeds Lab (DAWL) at the University of
-                Manitoba focuses on advancing sustainable crop production
-                through precision agriculture and data-driven weed management.
+                Manitoba advances sustainable crop production by combining weed
+                science, precision agriculture, remote sensing, and field research.
               </p>
 
               <p>
-                Our research integrates remote sensing, UAV-based technologies,
-                and field experimentation to better understand crop–weed
-                interactions and improve agricultural decision-making.
-              </p>
-
-              <p>
-                We aim to bridge the gap between scientific innovation and
-                practical applications for farmers and industry stakeholders.
+                We translate data and emerging technologies into practical insights
+                for crop management, research, and agricultural decision-making.
               </p>
             </div>
 
