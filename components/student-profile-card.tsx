@@ -99,8 +99,8 @@ export function StudentProfileCard({ student }: { student: StudentProfile }) {
         </button>
       </DialogTrigger>
 
-      <DialogContent className="w-[calc(100vw-2rem)] max-h-[90vh] max-w-6xl overflow-hidden p-0 sm:rounded-3xl">
-        <div className="grid max-h-[90vh] overflow-y-auto lg:grid-cols-[340px_minmax(0,1fr)]">
+      <DialogContent className="!w-[92vw] !max-w-[1380px] max-h-[92vh] overflow-hidden p-0 sm:rounded-3xl">
+        <div className="grid max-h-[92vh] overflow-y-auto lg:grid-cols-[380px_minmax(0,1fr)] xl:grid-cols-[410px_minmax(0,1fr)]">
           <div className="bg-secondary/45 p-6 md:p-8 lg:sticky lg:top-0 lg:self-start">
             <div className="mx-auto aspect-square w-full max-w-[240px] overflow-hidden rounded-2xl border border-border bg-primary/10 shadow-sm">
               <Avatar className="h-full w-full rounded-2xl">
@@ -142,16 +142,16 @@ export function StudentProfileCard({ student }: { student: StudentProfile }) {
             )}
           </div>
 
-          <div className="min-w-0 p-6 md:p-10 lg:p-12">
-            <DialogHeader className="text-left">
-              <DialogTitle className="text-3xl tracking-tight md:text-4xl">{student.name}</DialogTitle>
-              <DialogDescription className="max-w-3xl text-base leading-relaxed md:text-lg">
+          <div className="min-w-0 p-6 md:p-10 lg:p-10 xl:p-12">
+            <DialogHeader className="max-w-4xl text-left">
+              <DialogTitle className="text-3xl tracking-tight md:text-4xl lg:text-[2.7rem] lg:leading-tight">{student.name}</DialogTitle>
+              <DialogDescription className="max-w-4xl text-base leading-relaxed md:text-lg">
                 {student.project || student.role}
               </DialogDescription>
             </DialogHeader>
 
             {student.detailedBio && student.detailedBio.length > 0 && (
-              <div className="mt-8 max-w-3xl space-y-5 text-base leading-7 text-muted-foreground md:text-[1.05rem] md:leading-8">
+              <div className="mt-7 max-w-4xl space-y-4 text-base leading-7 text-muted-foreground md:text-[1.02rem] md:leading-7 lg:columns-1">
                 {student.detailedBio.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
