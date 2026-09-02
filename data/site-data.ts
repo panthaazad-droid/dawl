@@ -113,7 +113,20 @@ export const teamMembers = {
       name: "Pantha Azad",
       degree: "M.Sc. Student",
       image: "/images/team/Pantho.jpg",
-      project: "UAV-based crop monitoring",
+      project: "UAV remote sensing for crop growth and management in pulse crops",
+      researchInterests: [
+        "UAV remote sensing",
+        "LiDAR",
+        "Multispectral imaging",
+        "Precision agriculture",
+        "Digital crop phenotyping",
+        "Pulse crops",
+        "Crop management",
+      ],
+      detailedBio: [
+        "Pantha is a Master’s student in Plant Science at the University of Manitoba. His research focuses on developing UAV-based remote-sensing approaches to evaluate crop growth and best management practices in pulse crops, particularly field pea and dry bean.",
+        "His work integrates LiDAR and multispectral imagery with field-based agronomic measurements to quantify crop structural and spectral traits, including canopy development, biomass, and yield responses. He is particularly interested in digital crop phenotyping and the use of high-resolution remote-sensing data to develop practical tools for precision crop management and agricultural decision-making.",
+      ],
     },
     {
       name: "Shamima Sultana",
@@ -157,7 +170,20 @@ export const teamMembers = {
       name: "Sarangie Athuda",
       degree: "M.Sc. Student",
       image: "/images/team/Sarangie.jpg",
-      project: "Crop-weed interactions",
+      project: "Crop-weed interactions, RGB phenotyping, and soybean yield-loss modelling",
+      researchInterests: [
+        "Crop-weed interactions",
+        "Precision agriculture",
+        "RGB phenotyping",
+        "Yield-loss modelling",
+        "Soybean",
+        "Weed competition",
+        "Quantitative modelling",
+      ],
+      detailedBio: [
+        "I am a Master’s student specializing in Plant Science, with a research focus on crop–weed interactions and precision agriculture. My work involves modelling crop yield loss due to weed competition using RGB image-derived phenotypic traits, integrating high-throughput imaging with quantitative modelling approaches.",
+        "I am particularly interested in quantifying how weed density and relative emergence timing influence soybean yield, with the aim of developing robust, data-driven strategies for improved and sustainable weed management.",
+      ],
     },
     {
       name: "Lakmini Rathnayaka Pathiranage",

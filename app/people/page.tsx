@@ -179,6 +179,7 @@ export default async function PeoplePage() {
     .map((member) => ({
       name: member.name,
       degree: member.position || "Alumni",
+      image: member.photo || "",
       currentPosition: member.bio || "",
     }))
 
@@ -364,19 +365,34 @@ export default async function PeoplePage() {
                   {allAlumni.map((alum) => (
                     <article
                       key={alum.name}
-                      className="rounded-2xl border border-border bg-background p-5 shadow-sm"
+                      className="flex items-center gap-4 rounded-2xl border border-border bg-background p-5 shadow-sm"
                     >
-                      <h3 className="font-semibold">{alum.name}</h3>
+                      <Avatar className="h-20 w-20 shrink-0 bg-primary/10">
+                        {alum.image ? (
+                          <AvatarImage
+                            src={alum.image}
+                            alt={alum.name}
+                            className="object-cover"
+                          />
+                        ) : null}
+                        <AvatarFallback className="bg-primary/10 text-lg font-semibold text-primary">
+                          {getInitials(alum.name)}
+                        </AvatarFallback>
+                      </Avatar>
 
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {alum.degree}
-                      </p>
+                      <div className="min-w-0">
+                        <h3 className="font-semibold">{alum.name}</h3>
 
-                      {alum.currentPosition && (
-                        <p className="mt-2 text-sm text-primary">
-                          {alum.currentPosition}
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          {alum.degree}
                         </p>
-                      )}
+
+                        {alum.currentPosition && (
+                          <p className="mt-2 text-sm text-primary">
+                            {alum.currentPosition}
+                          </p>
+                        )}
+                      </div>
                     </article>
                   ))}
                 </div>
