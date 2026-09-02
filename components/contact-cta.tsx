@@ -4,33 +4,35 @@ import { siteConfig } from "@/data/site-data"
 
 export function ContactCTA() {
   return (
-    <section className="border-t border-border bg-background py-20 md:py-24">
+    <section className="py-20 bg-background">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-8 rounded-2xl border border-border bg-secondary/35 px-7 py-9 md:grid-cols-[1fr_auto] md:items-center md:px-10 md:py-10">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Research & Academic Opportunities
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
-              Research collaboration and opportunities with DAWL
-            </h2>
-            <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
-              We welcome inquiries related to research collaboration, graduate and
-              postdoctoral opportunities, field research, and knowledge exchange.
-            </p>
-          </div>
+        <div className="rounded-3xl bg-primary px-6 py-12 text-center text-primary-foreground md:px-12">
+          <p className="text-sm uppercase tracking-widest text-primary-foreground/70">
+            Connect with DAWL
+          </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            Research collaboration and opportunities
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-primary-foreground/80">
+            Contact the Digital Agronomy & Weeds Lab to discuss research
+            collaboration, student opportunities, postdoctoral positions, field
+            work, or outreach.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href={`mailto:${siteConfig.contact.email}?subject=DAWL inquiry`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-foreground px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary-foreground/90"
             >
-              Contact the Lab
+              Email DAWL
               <Mail className="h-4 w-4" />
             </Link>
+
             <Link
               href="/opportunities"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-foreground/30 px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
               View Opportunities
               <ArrowUpRight className="h-4 w-4" />

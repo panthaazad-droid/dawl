@@ -1,9 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, BarChart3, Plane, Sprout } from "lucide-react"
+import { ArrowLeft, ArrowRight, BarChart3, BookOpen, ExternalLink, Mail, Plane, Sprout } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
-import { siteConfig } from "@/data/site-data"
+import { principalInvestigator, siteConfig } from "@/data/site-data"
 
 export const metadata = {
   title: "About | Digital Agronomy and Weeds Lab",
@@ -81,6 +81,49 @@ export default function AboutPage() {
                   </p>
                   <p className="mt-2 text-xl font-semibold">{siteConfig.university}</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-background py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-10 max-w-3xl">
+              <p className="text-sm font-medium uppercase tracking-widest text-primary">Principal Investigator</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Research leadership</h2>
+            </div>
+            <div className="grid gap-10 rounded-3xl border border-border bg-secondary/30 p-6 shadow-sm md:p-8 lg:grid-cols-[300px_1fr] lg:items-center">
+              <div className="relative mx-auto h-[340px] w-full max-w-[300px] overflow-hidden rounded-2xl border border-border bg-primary/10 shadow-sm">
+                <Image src={principalInvestigator.image} alt={principalInvestigator.name} fill className="object-cover" sizes="300px" />
+              </div>
+              <div>
+                <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">Lab Director / Principal Investigator</p>
+                <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{principalInvestigator.name}</h3>
+                <p className="mt-2 text-lg text-muted-foreground">{principalInvestigator.title} · {siteConfig.department}</p>
+                <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">{principalInvestigator.bio}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {principalInvestigator.credentials.map((credential) => <span key={credential} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{credential}</span>)}
+                </div>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href={`mailto:${principalInvestigator.email}`} className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"><Mail className="h-4 w-4" />Email</Link>
+                  <Link href={principalInvestigator.googleScholar} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"><BookOpen className="h-4 w-4" />Google Scholar</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-secondary/35 py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+              <div>
+                <p className="text-sm font-medium uppercase tracking-widest text-primary">Featured Media</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Using drones for precision weed control</h2>
+                <p className="mt-5 leading-relaxed text-muted-foreground">In this AGronomyTV feature, Dr. Dilshan Benaragama discusses how UAV technologies can support precision weed management and more targeted agricultural decision-making.</p>
+                <Link href="https://www.youtube.com/watch?v=1uOwfE75qiA&t=47s" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">Watch on YouTube<ExternalLink className="h-4 w-4" /></Link>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-border bg-black shadow-sm">
+                <div className="aspect-video"><iframe className="h-full w-full" src="https://www.youtube.com/embed/1uOwfE75qiA?start=47" title="AGronomyTV: Using drones for precision weed control" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div>
               </div>
             </div>
           </div>

@@ -325,10 +325,20 @@ export async function getApprovedPosters(): Promise<SheetPoster[]> {
     .filter((poster) => poster.title && poster.pdf)
 }
 
+const builtInNewsItems: SheetNewsItem[] = [
+  {
+    title: "Can farmers grow more while spraying less?",
+    date: "August 25, 2026",
+    type: "Media Feature",
+    summary: "UM Today featured Dr. Dilshan Benaragama and student researchers from DAWL in a story on precision agriculture, UAV-based field sensing, and technologies designed to reduce agricultural inputs while maintaining productivity.",
+    link: "https://umtoday.ca/stories/can-farmers-grow-more-while-spraying-less",
+    featured: "Yes",
+  },
+]
+
 export async function getApprovedNewsItems(): Promise<SheetNewsItem[]> {
   const rows = await fetchRows(process.env.DAWL_NEWS_CSV_URL)
-
-  return rows
+  const sheetItems = rows
     .filter(isApproved)
     .map((row) => ({
       title: getValue(row, ["Title", "News Title"]),
@@ -336,11 +346,15 @@ export async function getApprovedNewsItems(): Promise<SheetNewsItem[]> {
       type: getValue(row, ["News/Event Type", "Type", "Category"]),
       summary: getValue(row, ["Short Summary", "Summary"]),
       description: getValue(row, ["Full Description", "Description"]),
-      image: normalizeImageUrl(
-        getValue(row, ["Image Link", "Image", "Photo Link"])
-      ),
+      image: normalizeImageUrl(getValue(row, ["Image Link", "Image", "Photo Link"])),
       link: getValue(row, ["External Link", "Link", "URL"]),
       featured: getValue(row, ["Featured on Homepage", "Featured"]),
     }))
     .filter((item) => item.title)
+
+  const sheetTitles = new Set(sheetItems.map((item) => item.title.toLowerCase()))
+  return [
+    ...builtInNewsItems.filter((item) => !sheetTitles.has(item.title.toLowerCase())),
+    ...sheetItems,
+  ]
 }
