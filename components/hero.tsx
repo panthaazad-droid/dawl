@@ -84,7 +84,7 @@ export function Hero() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link
-                href="/#research"
+                href="/research"
                 className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-sm font-medium text-black transition-colors hover:bg-white/90"
               >
                 Explore Our Research

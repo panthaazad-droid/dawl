@@ -12,15 +12,21 @@ export const metadata = {
 
 function getPublicationLink(doi?: string) {
   if (!doi) return ""
-
   const value = doi.trim()
-
   if (!value) return ""
   if (value.startsWith("http://") || value.startsWith("https://")) return value
   if (value.startsWith("doi.org/")) return `https://${value}`
   if (value.startsWith("10.")) return `https://doi.org/${value}`
-
   return value
+}
+
+function getRecordLink(pub: unknown) {
+  if (!pub || typeof pub !== "object") return { href: "", label: "" }
+  const record = pub as { doi?: string; link?: string; linkLabel?: string }
+  const doiLink = getPublicationLink(record.doi)
+  if (doiLink) return { href: doiLink, label: "DOI" }
+  if (record.link) return { href: record.link, label: record.linkLabel || "View record" }
+  return { href: "", label: "" }
 }
 
 export default function PublicationsPage() {
@@ -29,52 +35,51 @@ export default function PublicationsPage() {
       <Header />
 
       <main className="pt-24">
-        <section className="py-20 md:py-28 bg-background">
+        <section className="bg-background py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-6">
             <div className="max-w-3xl">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+                className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to home
               </Link>
 
-              <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3">
+              <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
                 Publications
               </p>
-
-              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+              <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
                 Research publications
               </h1>
-
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                A complete list of selected research outputs related to weed
-                science, crop–weed interactions, integrated weed management,
-                remote sensing, and sustainable cropping systems.
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                Selected research outputs related to weed science, crop–weed
+                interactions, integrated weed management, remote sensing, and
+                sustainable cropping systems.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-secondary/30">
+        <section className="bg-secondary/30 py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="max-w-5xl mx-auto">
-              <div className="space-y-0 border-t border-border bg-background/60 rounded-2xl overflow-hidden">
+            <div className="mx-auto max-w-5xl">
+              <div className="overflow-hidden rounded-2xl border-t border-border bg-background/60">
                 {publications.map((pub, index) => {
-                  const publicationLink = getPublicationLink(pub.doi)
+                  const publicationRecord = getRecordLink(pub)
+                  const publicationLink = publicationRecord.href
 
                   return (
                     <article
                       key={`${pub.title}-${index}`}
-                      className="flex flex-col md:flex-row md:items-start gap-4 py-6 border-b border-border group hover:bg-card/80 px-6 transition-colors"
+                      className="group flex flex-col gap-4 border-b border-border px-6 py-6 transition-colors hover:bg-card/80 md:flex-row md:items-start"
                     >
-                      <span className="text-sm font-mono text-primary font-medium w-16 flex-shrink-0">
+                      <span className="w-16 flex-shrink-0 font-mono text-sm font-medium text-primary">
                         {pub.year || "—"}
                       </span>
 
-                      <div className="flex-1 min-w-0">
-                        <h2 className="font-medium mb-2 group-hover:text-primary transition-colors leading-snug">
+                      <div className="min-w-0 flex-1">
+                        <h2 className="mb-2 font-medium leading-snug transition-colors group-hover:text-primary">
                           {publicationLink ? (
                             <Link
                               href={publicationLink}
@@ -90,16 +95,12 @@ export default function PublicationsPage() {
                         </h2>
 
                         {pub.authors && (
-                          <p className="text-sm text-muted-foreground mb-1">
-                            {pub.authors}
-                          </p>
+                          <p className="mb-1 text-sm text-muted-foreground">{pub.authors}</p>
                         )}
 
                         {(pub.journal || pub.volume || pub.pages) && (
                           <p className="text-sm text-muted-foreground">
-                            {pub.journal && (
-                              <span className="italic">{pub.journal}</span>
-                            )}
+                            {pub.journal && <span className="italic">{pub.journal}</span>}
                             {pub.volume && <span>, {pub.volume}</span>}
                             {pub.pages && <span>: {pub.pages}</span>}
                           </p>
@@ -111,10 +112,11 @@ export default function PublicationsPage() {
                           href={publicationLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-shrink-0 text-muted-foreground hover:text-primary transition-colors"
-                          aria-label="View publication"
+                          className="inline-flex flex-shrink-0 items-center gap-1.5 self-start rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                          aria-label={`Open ${publicationRecord.label || "publication"}`}
                         >
-                          <ExternalLink className="h-4 w-4" />
+                          {publicationRecord.label}
+                          <ExternalLink className="h-3.5 w-3.5" />
                         </Link>
                       )}
                     </article>
@@ -128,7 +130,7 @@ export default function PublicationsPage() {
                     href={siteConfig.social.googleScholar}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-border text-foreground hover:bg-secondary transition-colors rounded-lg"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
                   >
                     View all on Google Scholar
                     <ExternalLink className="h-4 w-4" />

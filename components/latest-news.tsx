@@ -1,10 +1,14 @@
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, CalendarDays, ExternalLink, Newspaper } from "lucide-react"
+import { ArrowRight, CalendarDays, ExternalLink } from "lucide-react"
 import { getApprovedNewsItems } from "@/lib/google-sheet"
+import { newsStories } from "@/data/site-data"
 
 export async function LatestNews() {
-  const newsItems = await getApprovedNewsItems()
-  const latest = newsItems.slice(0, 3)
+  const sheetNews = await getApprovedNewsItems()
+  const featuredStory = newsStories[0]
+  const secondaryStories = newsStories.slice(1, 3)
+  const sheetPreview = sheetNews.slice(0, Math.max(0, 2 - secondaryStories.length))
 
   return (
     <section id="news" className="border-y border-border bg-background py-24 md:py-28">
@@ -12,14 +16,14 @@ export async function LatestNews() {
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
-              News & Events
+              DAWL News & Stories
             </p>
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Latest from DAWL
+              Latest from the lab
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Research updates, field activities, conferences, awards, and other
-              highlights from the lab.
+              Research features, media, field activities, conferences, and
+              updates from the Digital Agronomy & Weeds Lab.
             </p>
           </div>
 
@@ -27,79 +31,99 @@ export async function LatestNews() {
             href="/news"
             className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
           >
-            View all news
+            View all stories
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        {latest.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-3">
-            {latest.map((item, index) => (
+        <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
+          <Link
+            href={`/news/${featuredStory.slug}`}
+            className="group overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-primary/25 hover:shadow-md"
+          >
+            <div className="relative h-[300px] overflow-hidden md:h-[360px]">
+              <Image
+                src={featuredStory.image}
+                alt={featuredStory.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="(max-width: 1024px) 100vw, 65vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-8">
+                <div className="mb-3 flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-wider text-white/80">
+                  <span>{featuredStory.type}</span>
+                  <span>•</span>
+                  <span>{featuredStory.date}</span>
+                </div>
+                <h3 className="max-w-3xl text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
+                  {featuredStory.title}
+                </h3>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/85 md:text-base">
+                  {featuredStory.summary}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium">
+                  Read story
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          <div className="grid gap-6">
+            {secondaryStories.map((story) => (
+              <Link
+                key={story.slug}
+                href={`/news/${story.slug}`}
+                className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:border-primary/25 hover:shadow-md"
+              >
+                <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-primary">
+                  <span>{story.type}</span>
+                  {story.date && story.date !== "Featured Media" && (
+                    <>
+                      <span>•</span>
+                      <span>{story.date}</span>
+                    </>
+                  )}
+                </div>
+                <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight group-hover:text-primary">
+                  {story.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                  {story.summary}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                  Open story
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            ))}
+
+            {sheetPreview.map((item, index) => (
               <article
                 key={`${item.title}-${index}`}
-                className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                className="rounded-2xl border border-border bg-card p-6 shadow-sm"
               >
-                <div className="mb-5 flex items-center justify-between gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Newspaper className="h-5 w-5" />
-                  </div>
-                  {item.type && (
-                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                      {item.type}
-                    </span>
-                  )}
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <CalendarDays className="h-3.5 w-3.5" />
+                  {item.date || "DAWL update"}
                 </div>
-
-                {item.date && (
-                  <p className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
-                    <CalendarDays className="h-3.5 w-3.5" />
-                    {item.date}
-                  </p>
+                <h3 className="mt-3 text-lg font-semibold tracking-tight">{item.title}</h3>
+                {item.link && (
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                  >
+                    Read more
+                    <ExternalLink className="h-4 w-4" />
+                  </Link>
                 )}
-
-                <h3 className="text-xl font-semibold leading-snug tracking-tight">
-                  {item.title}
-                </h3>
-
-                {(item.summary || item.description) && (
-                  <p className="mt-4 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
-                    {item.summary || item.description}
-                  </p>
-                )}
-
-                <div className="mt-auto pt-6">
-                  {item.link ? (
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                    >
-                      Read more
-                      <ExternalLink className="h-4 w-4" />
-                    </Link>
-                  ) : (
-                    <Link
-                      href="/news"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                    >
-                      View update
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  )}
-                </div>
               </article>
             ))}
           </div>
-        ) : (
-          <div className="rounded-3xl border border-dashed border-primary/25 bg-primary/[0.035] px-6 py-12 text-center">
-            <Newspaper className="mx-auto h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">News updates are coming soon</h3>
-            <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Approved lab news and event updates will automatically appear here.
-            </p>
-          </div>
-        )}
+        </div>
       </div>
     </section>
   )

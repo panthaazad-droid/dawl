@@ -13,6 +13,15 @@ function getPublicationLink(doi?: string) {
   return value
 }
 
+function getRecordLink(pub: unknown) {
+  if (!pub || typeof pub !== "object") return { href: "", label: "" }
+  const record = pub as { doi?: string; link?: string; linkLabel?: string }
+  const doiLink = getPublicationLink(record.doi)
+  if (doiLink) return { href: doiLink, label: "DOI" }
+  if (record.link) return { href: record.link, label: record.linkLabel || "View record" }
+  return { href: "", label: "" }
+}
+
 function getTopics(title: string) {
   const value = title.toLowerCase()
   const topics: string[] = []
@@ -49,7 +58,8 @@ export async function Publications() {
 
         <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-border bg-background shadow-sm">
           {featuredPublications.map((pub, index) => {
-            const publicationLink = getPublicationLink(pub.doi)
+            const publicationRecord = getRecordLink(pub)
+            const publicationLink = publicationRecord.href
             const topics = getTopics(pub.title)
 
             return (
@@ -99,10 +109,10 @@ export async function Publications() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex h-10 items-center gap-2 self-start rounded-lg border border-border px-3 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
-                    aria-label="Open publication DOI"
+                    aria-label={`Open ${publicationRecord.label || "publication"}`}
                   >
                     <Link2 className="h-3.5 w-3.5" />
-                    DOI
+                    {publicationRecord.label}
                     <ExternalLink className="h-3.5 w-3.5" />
                   </Link>
                 )}

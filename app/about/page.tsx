@@ -86,7 +86,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="border-b border-border bg-background py-20 md:py-24">
+        <section id="principal-investigator" className="border-b border-border bg-background py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-10 max-w-3xl">
               <p className="text-sm font-medium uppercase tracking-widest text-primary">Principal Investigator</p>
@@ -196,7 +196,7 @@ export default function AboutPage() {
 
               <div className="flex flex-wrap gap-3">
                 <Link
-                  href="/#research"
+                  href="/research"
                   className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   Explore research

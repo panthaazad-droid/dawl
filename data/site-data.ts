@@ -103,67 +103,100 @@ export const teamMembers = {
   ],
 
   gradStudents: [
-  {
-    name: "Uthpala Ekanayake",
-    degree: "M.Sc. Student",
-    image: "/images/team/Uthpala.jpg",
-    project: "Integrated crop management",
-  },
-  {
-    name: "Shirmith Nirmal",
-    degree: "M.Sc. Student",
-    image: "/images/team/Shirmith.jpg",
-    project: "Machine learning for weed detection",
-  },
-  {
-    name: "Pantha Azad",
-    degree: "M.Sc. Student",
-    image: "/images/team/Pantho.jpg",
-    project: "UAV-based crop monitoring",
-  },
-  {
-    name: "Shamima Sultana",
-    degree: "M.Sc. Student",
-    image: "/images/team/Soma.jpg",
-    project: "Kochia seedbank management",
-  },
-  {
-    name: "Matt Fallis",
-    degree: "M.Sc. Student",
-    image: "/images/team/Matt.jpg",
-    project: "Remote sensing in soybean",
-  },
-  {
-    name: "Kosar Eivani",
-    degree: "M.Sc. Student",
-    image: "/images/team/Kosar.jpg",
-    project: "Remote sensing for weed management",
-  },
-  {
-    name: "Indeera Hetti Arachchige",
-    degree: "Ph.D. Student",
-    image: "/images/team/Indeera.jpg",
-    project: "Precision weed management",
-  },
-  {
-    name: "Sarangie Athuda",
-    degree: "M.Sc. Student",
-    image: "/images/team/Sarangie.jpg",
-    project: "Crop-weed interactions",
-  },
-  {
-    name: "Lakmini Rathnayaka Pathiranage",
-    degree: "Ph.D. Student",
-    image: "/images/team/Lakmini.jpg",
-    project: "Weed adaptation and stress memory",
-  },
-  {
-    name: "Navroop Kaur",
-    degree: "M.Sc. Student",
-    image: "/images/team/Navroop.jpg",
-    project: "Weed-crop interactions in maize",
-  },
-],
+    {
+      name: "Shirmith Nirmal",
+      degree: "M.Sc. Student",
+      image: "/images/team/Shirmith.jpg",
+      project: "Machine learning for weed detection",
+    },
+    {
+      name: "Pantha Azad",
+      degree: "M.Sc. Student",
+      image: "/images/team/Pantho.jpg",
+      project: "UAV-based crop monitoring",
+    },
+    {
+      name: "Shamima Sultana",
+      degree: "M.Sc. Student",
+      image: "/images/team/Soma.jpg",
+      project: "Kochia seedbank management",
+    },
+    {
+      name: "Matt Fallis",
+      degree: "M.Sc. Student",
+      image: "/images/team/Matt.jpg",
+      project: "Remote sensing in soybean",
+    },
+    {
+      name: "Kosar Eivani",
+      degree: "M.Sc. Student",
+      image: "/images/team/Kosar.jpg",
+      project: "Remote sensing for weed management",
+    },
+    {
+      name: "Indeera Hetti Arachchige",
+      degree: "Ph.D. Student",
+      image: "/images/team/Indeera.jpg",
+      project: "Integrated and precision weed management in pulse and soybean crops",
+      researchInterests: [
+        "Integrated weed management",
+        "Pulse crops",
+        "Soybean",
+        "Herbicides",
+        "Cultural weed management",
+        "Drone spot spraying",
+        "Precision agriculture",
+      ],
+      detailedBio: [
+        "I am a PhD student working on developing robust weed management strategies for pulse and soybean crops by integrating herbicides, cultural strategies, and drone-based spot spraying. My research aims to develop practical and economically viable weed-management recommendations that can be adopted by pulse and soybean growers across the Canadian Prairies.",
+        "I am a recipient of the University of Manitoba Graduate Fellowship and am particularly interested in applying innovative approaches and drone-based tools to support on-farm decision-making and precision weed management.",
+      ],
+      highlights: ["University of Manitoba Graduate Fellowship recipient"],
+    },
+    {
+      name: "Sarangie Athuda",
+      degree: "M.Sc. Student",
+      image: "/images/team/Sarangie.jpg",
+      project: "Crop-weed interactions",
+    },
+    {
+      name: "Lakmini Rathnayaka Pathiranage",
+      degree: "Ph.D. Student",
+      image: "/images/team/Lakmini.jpg",
+      project: "Weed adaptation, herbicide response, and remote-sensing-based field screening",
+      education: [
+        "M.Sc., University of Manitoba",
+        "B.Sc. in Botany, University of Peradeniya, Sri Lanka",
+      ],
+      researchInterests: [
+        "Weed ecology",
+        "Eco-evolutionary adaptation",
+        "Herbicide response",
+        "Transgenerational stress memory",
+        "Molecular weed science",
+        "Remote sensing",
+      ],
+      detailedBio: [
+        "I am a PhD student in Plant Science at the University of Manitoba, where I also completed my M.Sc. degree. I obtained my B.Sc. specializing in Botany from the University of Peradeniya, Sri Lanka.",
+        "My PhD research focuses on eco-evolutionary responses of two economically important weed species of the western Canadian prairies: wild oat (Avena fatua) and kochia (Bassia scoparia). My work integrates greenhouse experiments on transgenerational stress memory and herbicide dose responses together with molecular analyses to better understand how weeds rapidly adapt to agricultural stresses, with the goal of developing a remote sensing-based field screening tool to support more effective and sustainable weed management and decision-making strategies in Prairie agroecosystems.",
+      ],
+    },
+    {
+      name: "Navroop Kaur",
+      degree: "M.Sc. Student",
+      image: "/images/team/Navroop.jpg",
+      project: "Weed-crop interactions in maize",
+    },
+  ],
+
+  alumni: [
+    {
+      name: "Uthpala Ekanayake",
+      degree: "M.Sc., University of Manitoba",
+      image: "/images/team/Uthpala.jpg",
+      currentPosition: "DAWL alumna",
+    },
+  ],
 }
 
 // This keeps compatibility with any page/component that imports gradStudents directly
@@ -174,25 +207,66 @@ export const gradStudents = teamMembers.gradStudents
 // ============================================
 export const researchAreas = [
   {
-    title: "Precision Agriculture",
+    title: "Precision Weed Management",
     description:
-      "Developing site-specific management strategies using advanced sensing technologies, GPS mapping, UAV platforms, and variable-rate systems to optimize crop inputs and improve field-scale decision-making.",
-    image: "/images/research/precision-ag.jpg",
-    tags: ["Remote Sensing", "GPS Mapping", "Variable Rate Technology"],
+      "Using UAV-based weed detection, field mapping, precision application, and decision-support approaches to target weeds more accurately and reduce unnecessary inputs.",
+    tags: ["Weed Detection", "Spot Spraying", "Decision Support"],
+    icon: "crosshair",
   },
   {
-    title: "Weed Science & Management",
+    title: "Integrated Weed Management",
     description:
-      "Investigating integrated weed management approaches that combine cultural, mechanical, chemical, and digital strategies to support sustainable and effective weed control.",
-    image: "/images/research/weed-science.jpg",
-    tags: ["Integrated Management", "Herbicide Resistance", "Cover Crops"],
+      "Combining herbicides with cultural, agronomic, and non-chemical tactics to improve long-term weed suppression and support resilient cropping systems.",
+    tags: ["Cultural Control", "Herbicides", "Crop Competition"],
+    icon: "sprout",
   },
   {
-    title: "Digital Agriculture & AI",
+    title: "Digital Crop Phenotyping",
     description:
-      "Leveraging machine learning, computer vision, high-resolution imagery, LiDAR, and data analytics to develop decision-support tools for modern agricultural systems.",
-    image: "/images/research/digital-ag.jpg",
-    tags: ["Machine Learning", "Computer Vision", "Data Analytics"],
+      "Applying LiDAR, multispectral imagery, RGB sensing, and field measurements to quantify crop growth, canopy structure, biomass, maturity, and yield-related traits.",
+    tags: ["LiDAR", "Multispectral", "Crop Phenotyping"],
+    icon: "scan",
+  },
+  {
+    title: "Crop Management & Agronomy",
+    description:
+      "Evaluating seeding date, seeding rate, row spacing, crop establishment, and crop-weed interactions to develop practical management recommendations for Prairie production systems.",
+    tags: ["Seeding Systems", "Pulse Crops", "Soybean"],
+    icon: "barChart",
+  },
+  {
+    title: "Weed Adaptation & Resistance",
+    description:
+      "Investigating herbicide response, stress memory, eco-evolutionary adaptation, and molecular mechanisms that help important Prairie weeds persist under agricultural selection pressures.",
+    tags: ["Herbicide Response", "Stress Memory", "Molecular Ecology"],
+    icon: "dna",
+  },
+]
+
+export const selectedResearchProjects = [
+  {
+    title: "UAV-based precision weed control",
+    theme: "Precision Weed Management",
+    description:
+      "Developing field-scale workflows that connect weed detection and mapping with targeted management, including drone-based spot spraying and precision application.",
+  },
+  {
+    title: "Remote sensing for pulse crop management",
+    theme: "Digital Crop Phenotyping",
+    description:
+      "Using UAV LiDAR and multispectral sensing to quantify crop growth and management responses under different seeding dates and seeding rates in pulse crops.",
+  },
+  {
+    title: "Soybean canopy development under weed competition",
+    theme: "Crop Management & Agronomy",
+    description:
+      "Evaluating how seeding rate, row spacing, and weed pressure influence soybean canopy development using field measurements and UAV-based LiDAR.",
+  },
+  {
+    title: "Kochia and wild oat adaptation",
+    theme: "Weed Adaptation & Resistance",
+    description:
+      "Studying stress responses, herbicide dose responses, and adaptive processes in economically important Prairie weeds while exploring remote-sensing-based field screening approaches.",
   },
 ]
 
@@ -324,7 +398,7 @@ export const publications = [
     journal: "Weed Science",
     volume: "68(6)",
     pages: "654–663",
-    doi: "",
+    doi: "https://doi.org/10.1017/wsc.2020.57",
   },
   {
     year: "2019",
@@ -377,7 +451,7 @@ export const publications = [
     journal: "Field Crops Research",
     volume: "196",
     pages: "357–367",
-    doi: "",
+    doi: "https://doi.org/10.1016/j.fcr.2016.07.010",
   },
   {
     year: "2016",
@@ -435,40 +509,48 @@ export const publications = [
     title:
       "Crop–Weed Interactions under Diverse Cropping Systems in the Canadian Prairies",
     authors: "Dilshan Benaragama, Steven J. Shirtliffe",
-    journal: "Conference paper / University of Saskatchewan repository",
+    journal: "Presentation / University of Saskatchewan repository",
     volume: "",
     pages: "",
     doi: "",
+    link: "https://harvest.usask.ca/items/a614ed4c-f38a-4cc9-940d-0a710b4a2a01",
+    linkLabel: "Repository",
   },
   {
-    year: "2011",
+    year: "2012",
     title:
       "Integration of Cultural and Mechanical Weed Control Strategies Enhance Weed Control in Organic Cropping Systems",
     authors: "Dilshan Benaragama",
-    journal: "Conference paper / University of Saskatchewan repository",
+    journal: "Conference proceedings / Canadian Organic Science Conference",
     volume: "",
     pages: "",
     doi: "",
+    link: "https://orgprints.org/id/eprint/20797/1/COSC_Proceedings_Final_Web_Optimized_1.pdf",
+    linkLabel: "Proceedings",
   },
   {
     year: "2011",
     title:
       "Integration of cultural weed control enhances weed control in organic cropping systems",
     authors: "Dilshan Benaragama",
-    journal: "Conference paper / University of Saskatchewan repository",
+    journal: "Poster presentation / University of Saskatchewan repository",
     volume: "",
     pages: "",
     doi: "",
+    link: "https://harvest.usask.ca/items/ffb78d81-ccc1-4674-bbeb-9b733b848b37",
+    linkLabel: "Repository",
   },
   {
-    year: "",
+    year: "2011",
     title:
       "Enhancing the competitive ability of oat (Avena sativa L.) cropping systems",
     authors: "Dilshan Benaragama",
-    journal: "Thesis / University of Saskatchewan repository",
+    journal: "M.Sc. thesis / University of Saskatchewan repository",
     volume: "",
     pages: "",
     doi: "",
+    link: "https://harvest.usask.ca/items/7c93cb19-760e-45fd-b3b3-15f2d96c14cd",
+    linkLabel: "Repository",
   },
 ]
 
@@ -521,7 +603,7 @@ export const posters = [
     title:
       "Quantification of Soybean Canopy Development and Weed Competition Using LiDAR-Based UAV Imaging",
     authors: "Matt Fallis, Kristen MacMillan, and Dilshan Benaragama",
-    event: "Manitoba Agronomists Conference (MAC)",
+    event: "MAC 2025",
     year: "2025",
     type: "Research Poster",
     abstract:
@@ -558,7 +640,7 @@ export const posters = [
       "Development of Remote Sensing Tools to Evaluate In-Field Results of Best Management Practices (BMPs) for Peas",
     authors:
       "MD Pantha Azad Sabbyashachi, Kristen P. MacMillan, Claudia Quilesfogel-Esparza, Brodie Erb, and Dilshan Benaragama",
-    event: "MAC Poster",
+    event: "MAC 2025",
     year: "2025",
     type: "Research Poster",
     abstract:
@@ -622,6 +704,45 @@ export const howToApply = {
   description:
     "Interested applicants are encouraged to contact Dr. Dilshan Benaragama with a CV, statement of research interests, and academic transcripts.",
 }
+
+// ============================================
+// NEWS & STORIES
+// ============================================
+export const newsStories = [
+  {
+    slug: "can-farmers-grow-more-while-spraying-less",
+    title: "Can farmers grow more while spraying less?",
+    date: "August 25, 2026",
+    type: "Lab in the News",
+    image: "/images/hero-bg.jpg",
+    summary:
+      "UM Today featured Dr. Dilshan Benaragama, student researchers, and collaborative precision-agriculture work aimed at turning drone and sensor data into practical, targeted field management.",
+    body: [
+      "The Digital Agronomy & Weeds Lab was featured by UM Today in a story highlighting research led by Dr. Dilshan Benaragama and collaborators on the next generation of precision agriculture tools.",
+      "The work builds on field scouting with drones, satellites, and sensors by focusing on how precision information can be translated into action. New research infrastructure will support testing of precision spraying, variable-rate seeding, and other technologies designed to apply inputs only where they are needed.",
+      "For DAWL, this work reflects a central research goal: connecting digital sensing, agronomy, and weed science with practical decision-making that can improve efficiency while reducing unnecessary chemical use.",
+    ],
+    sourceUrl: "https://umtoday.ca/stories/can-farmers-grow-more-while-spraying-less",
+    sourceLabel: "Read the original UM Today story",
+  },
+  {
+    slug: "using-drones-for-precision-weed-control",
+    title: "Using drones for precision weed control",
+    date: "Featured Media",
+    type: "Media",
+    image: "/images/hero-bg.jpg",
+    summary:
+      "In an AGronomyTV feature, Dr. Dilshan Benaragama discusses how drones and digital tools can support more precise weed management.",
+    body: [
+      "Dr. Dilshan Benaragama discusses the role of drones in precision weed management and how high-resolution field information can support more targeted decisions.",
+      "The feature connects directly with DAWL's broader work in UAV remote sensing, weed detection, precision application, and data-driven crop management.",
+    ],
+    videoId: "1uOwfE75qiA",
+    videoStart: 47,
+    sourceUrl: "https://www.youtube.com/watch?v=1uOwfE75qiA&t=47s",
+    sourceLabel: "Watch on YouTube",
+  },
+]
 
 // ============================================
 // HERO SECTION FEATURES

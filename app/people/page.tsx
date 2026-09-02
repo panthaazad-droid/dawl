@@ -7,6 +7,7 @@ import { principalInvestigator, teamMembers } from "@/data/site-data"
 import { getApprovedTeamMembers, type SheetTeamMember } from "@/lib/google-sheet"
 import { ArrowLeft, BookOpen, ExternalLink, Mail } from "lucide-react"
 import Link from "next/link"
+import { StudentProfileCard, type StudentProfile } from "@/components/student-profile-card"
 
 export const metadata = {
   title: "People | Digital Agronomy and Weeds Lab",
@@ -162,7 +163,7 @@ export default async function PeoplePage() {
     }))
 
   const submittedGradStudents: DetailedPerson[] = submittedMembers
-    .filter((member) => isGraduateStudent(member))
+    .filter((member) => isGraduateStudent(member) && member.name.trim().toLowerCase() !== "uthpala ekanayake")
     .map((member) => ({
       name: member.name,
       role: member.position || "Graduate Student",
@@ -194,17 +195,24 @@ export default async function PeoplePage() {
     ...submittedStaff,
   ]
 
-  const allGradStudents: DetailedPerson[] = [
+  const allGradStudents: StudentProfile[] = [
     ...teamMembers.gradStudents.map((student) => ({
       name: student.name,
       role: student.degree,
       image: student.image || "",
       project: student.project,
-      expertise: [],
-      email: "",
-      profileLink: "",
+      education: "education" in student ? student.education : undefined,
+      researchInterests:
+        "researchInterests" in student ? student.researchInterests : undefined,
+      detailedBio: "detailedBio" in student ? student.detailedBio : undefined,
+      highlights: "highlights" in student ? student.highlights : undefined,
     })),
-    ...submittedGradStudents,
+    ...submittedGradStudents.map((student) => ({
+      name: student.name,
+      role: student.role,
+      image: student.image,
+      project: student.project,
+    })),
   ]
 
   const allAlumni = [...(teamMembers.alumni || []), ...submittedAlumni]
@@ -331,13 +339,16 @@ export default async function PeoplePage() {
 
             {allGradStudents.length > 0 && (
               <div className="mt-16">
-                <h2 className="mb-6 text-2xl font-semibold tracking-tight">
-                  Graduate Students
+                <h2 className="mb-2 text-2xl font-semibold tracking-tight">
+                  Current Graduate Students
                 </h2>
+                <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  Select a student profile where available to learn more about their research and academic background.
+                </p>
 
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {allGradStudents.map((student) => (
-                    <PersonCard key={student.name} person={student} />
+                    <StudentProfileCard key={student.name} student={student} />
                   ))}
                 </div>
               </div>
@@ -346,7 +357,7 @@ export default async function PeoplePage() {
             {allAlumni.length > 0 && (
               <div className="mt-16">
                 <h2 className="mb-6 text-2xl font-semibold tracking-tight">
-                  Alumni
+                  Alumni & Former Graduate Students
                 </h2>
 
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

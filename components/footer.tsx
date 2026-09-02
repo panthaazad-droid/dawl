@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site-data"
 
 const navigation = [
   { href: "/about", label: "About" },
-  { href: "/#research", label: "Research" },
+  { href: "/research", label: "Research" },
   { href: "/people", label: "People" },
   { href: "/news", label: "News & Events" },
 ]

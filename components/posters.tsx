@@ -1,96 +1,96 @@
-import { ArrowRight, Download, ExternalLink } from "lucide-react"
+import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { posters } from "@/data/site-data"
 import { getApprovedPosters } from "@/lib/google-sheet"
 
+function normalizeTitle(title: string) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()
+}
+
 export async function Posters() {
   const sheetPosters = await getApprovedPosters()
-  const allPosters = [...sheetPosters, ...posters]
+  const combined = [...sheetPosters, ...posters]
 
-  // Shows up to 4 posters on the homepage
+  const allPosters = Array.from(
+    combined.reduce((map, poster) => {
+      const key = normalizeTitle(poster.title)
+      if (!map.has(key)) map.set(key, poster)
+      return map
+    }, new Map<string, (typeof combined)[number]>()).values(),
+  ).sort((a, b) => {
+    const yearDiff = Number.parseInt(b.year || "0", 10) - Number.parseInt(a.year || "0", 10)
+    if (yearDiff !== 0) return yearDiff
+    return a.title.localeCompare(b.title)
+  })
+
   const featuredPosters = allPosters.slice(0, 4)
-
-  if (featuredPosters.length === 0) {
-    return null
-  }
+  if (featuredPosters.length === 0) return null
 
   return (
-    <section id="posters" className="py-20 md:py-28 bg-background">
+    <section id="posters" className="bg-background py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-widest text-primary font-medium mb-3">
+        <div className="mb-12 text-center">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
             Posters & Abstracts
           </p>
-
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
             Research posters and abstracts
           </h2>
-
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Explore selected DAWL posters, abstracts, and conference research
-            materials. Poster PDFs can be opened in a new tab or downloaded.
+          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+            Explore selected DAWL posters and conference research materials.
           </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredPosters.map((poster, index) => (
+          {featuredPosters.map((poster) => (
             <article
-              key={`${poster.title}-${index}`}
-              className="group rounded-2xl border border-border bg-card shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
+              key={normalizeTitle(poster.title)}
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-md"
             >
-              <div className="relative h-[260px] bg-secondary border-b border-border overflow-hidden">
-                {"preview" in poster && poster.preview ? (
-                  <img
-                    src={poster.preview}
-                    alt={`${poster.title} poster preview`}
-                    className="h-full w-full object-cover object-top"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center p-6 text-center text-sm text-muted-foreground">
-                    Poster preview available in the PDF
-                  </div>
-                )}
-              </div>
+              <Link href={poster.pdf} target="_blank" rel="noopener noreferrer">
+                <div className="relative h-[260px] overflow-hidden border-b border-border bg-secondary">
+                  {"preview" in poster && poster.preview ? (
+                    <img
+                      src={poster.preview}
+                      alt={`${poster.title} poster preview`}
+                      className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.015]"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center p-6 text-center text-sm text-muted-foreground">
+                      Poster preview available in the PDF
+                    </div>
+                  )}
+                </div>
+              </Link>
 
               <div className="p-5">
-                <div className="mb-3 flex flex-wrap gap-2">
+                <div className="mb-3 flex items-center justify-between gap-2">
                   <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-medium text-primary">
                     {poster.type}
                   </span>
-
-                  <span className="rounded-full border border-border px-2.5 py-1 text-[11px] text-muted-foreground">
-                    {poster.year}
-                  </span>
+                  <span className="text-xs text-muted-foreground">{poster.year}</span>
                 </div>
 
-                <h3 className="text-base font-semibold tracking-tight leading-snug group-hover:text-primary transition-colors line-clamp-3">
-                  {poster.title}
-                </h3>
-
-                <p className="mt-2 text-xs text-muted-foreground line-clamp-2">
-                  {poster.event}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
+                <h3 className="text-base font-semibold leading-snug tracking-tight transition-colors group-hover:text-primary line-clamp-3">
                   <Link
                     href={poster.pdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                    className="hover:underline"
                   >
-                    Open
-                    <ExternalLink className="h-3.5 w-3.5" />
+                    {poster.title}
                   </Link>
+                </h3>
 
-                  <a
-                    href={poster.pdf}
-                    download
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-xs font-medium hover:bg-secondary transition-colors"
-                  >
-                    Download
-                    <Download className="h-3.5 w-3.5" />
-                  </a>
-                </div>
+                <Link
+                  href={poster.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
+                >
+                  View poster
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </article>
           ))}
@@ -99,7 +99,7 @@ export async function Posters() {
         <div className="mt-12 text-center">
           <Link
             href="/posters"
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors rounded-lg"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             View all posters & abstracts
             <ArrowRight className="h-4 w-4" />

@@ -10,7 +10,7 @@ import { siteConfig } from "@/data/site-data"
 
 const navLinks = [
   { href: "/about", label: "About" },
-  { href: "/#research", label: "Research" },
+  { href: "/research", label: "Research" },
   { href: "/people", label: "People" },
   { href: "/publications", label: "Publications" },
   { href: "/posters", label: "Posters" },
@@ -25,7 +25,6 @@ export function Header() {
   const pathname = usePathname()
 
   const isActive = (href: string) => {
-    if (href === "/#research") return false
     return pathname === href
   }
 

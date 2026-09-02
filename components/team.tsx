@@ -46,7 +46,7 @@ export async function Team() {
     }))
 
   const submittedGradStudents = submittedMembers
-    .filter((member) => isGraduateStudent(member))
+    .filter((member) => isGraduateStudent(member) && member.name.trim().toLowerCase() !== "uthpala ekanayake")
     .map((member) => ({
       name: member.name,
       degree: member.position || "Graduate Student",
@@ -172,7 +172,7 @@ export async function Team() {
         {gradStudentPreview.length > 0 && (
           <div>
             <h3 className="text-lg font-semibold mb-6 text-muted-foreground">
-              Graduate Students
+              Current Graduate Students
             </h3>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
