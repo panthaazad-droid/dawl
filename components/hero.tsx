@@ -1,11 +1,5 @@
 import Image from "next/image"
-import {
-  ArrowDown,
-  ArrowUpRight,
-  BarChart3,
-  Satellite,
-  Sprout,
-} from "lucide-react"
+import { ArrowDown, ArrowUpRight, BarChart3, Satellite, Sprout } from "lucide-react"
 import Link from "next/link"
 import { heroConfig, heroFeatures, siteConfig } from "@/data/site-data"
 
@@ -16,11 +10,10 @@ const iconMap = {
 }
 
 export function Hero() {
-  const hasBackgroundImage =
-    heroConfig.useBackgroundImage && heroConfig.backgroundImage
+  const hasBackgroundImage = heroConfig.useBackgroundImage && heroConfig.backgroundImage
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-[88vh] overflow-hidden pt-20">
       {hasBackgroundImage ? (
         <div className="absolute inset-0">
           <Image
@@ -30,122 +23,101 @@ export function Hero() {
             className="object-cover"
             priority
           />
-
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/62 to-black/35" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_25%,rgba(255,255,255,0.12),transparent_30%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/60 to-black/42" />
         </div>
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/50 via-background to-background" />
       )}
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
-          <div>
-            {/* University affiliation block */}
+      <div className="relative z-10 mx-auto flex min-h-[calc(88vh-5rem)] max-w-7xl items-center px-6 py-20 md:py-24">
+        <div className="grid w-full gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="max-w-3xl">
             <Link
               href="https://umanitoba.ca/agricultural-food-sciences/plant-science"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit the University of Manitoba Department of Plant Science website"
-              className="group mb-8 inline-flex max-w-xl items-center gap-5 rounded-3xl border border-white/20 bg-white/10 px-5 py-4 text-white shadow-xl backdrop-blur-md transition-all hover:border-white/35 hover:bg-white/15 hover:shadow-2xl"
+              className="group mb-8 inline-flex items-center gap-4 rounded-2xl border border-white/20 bg-black/15 px-4 py-3 text-white backdrop-blur-md transition-colors hover:bg-black/25"
             >
-              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-white p-2 shadow-sm md:h-24 md:w-24">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-white p-1.5">
                 <Image
                   src="/images/brand/umanitoba-crest.png"
                   alt="University of Manitoba logo"
                   fill
-                  className="object-contain p-2"
-                  sizes="96px"
+                  className="object-contain p-1.5"
+                  sizes="56px"
                   priority
                 />
               </div>
-
-              <div className="flex-1">
+              <div>
                 <div className="flex items-center gap-2">
-                  <p className="text-xl font-semibold leading-tight md:text-2xl">
-                    {siteConfig.university}
-                  </p>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-white/55 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+                  <p className="text-base font-semibold md:text-lg">{siteConfig.university}</p>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-white/60 transition-colors group-hover:text-white" />
                 </div>
-
-                <p className="mt-2 text-xs font-medium uppercase tracking-[0.24em] text-white/72 md:text-sm">
+                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-white/70 md:text-xs">
                   {siteConfig.department}
                 </p>
               </div>
             </Link>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-balance text-white">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+              Digital Agronomy & Weed Science
+            </p>
+            <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight text-white md:text-6xl lg:text-7xl">
               {siteConfig.labName}
             </h1>
-
-            <p className="mt-6 text-lg md:text-xl max-w-xl leading-relaxed text-white/90">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
               {siteConfig.tagline}
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/#research"
-                className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-sm font-medium text-black transition-colors hover:bg-white/90"
+                className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-white/90"
               >
-                Explore Our Research
+                Explore Research
               </Link>
-
               <Link
-                href="/opportunities"
-                className="inline-flex items-center justify-center rounded-lg border border-white/30 px-8 py-4 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+                href="/about"
+                className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
               >
-                Join Our Team
+                About DAWL
               </Link>
             </div>
           </div>
 
-          {/* Stable feature cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {heroFeatures.map((feature, index) => {
-              const Icon =
-                iconMap[feature.icon as keyof typeof iconMap] || Sprout
-              const isLast = index === heroFeatures.length - 1
-
-              return (
-                <Link
-                  href="/#research"
-                  key={feature.title}
-                  className={`group rounded-2xl border border-white/18 bg-white/10 p-5 text-white shadow-lg backdrop-blur-md transition-colors hover:border-white/36 hover:bg-white/14 ${
-                    isLast ? "sm:col-span-2" : ""
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-5">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/18 text-white">
-                        <Icon className="h-6 w-6" />
-                      </div>
-
-                      <div>
-                        <h3 className="font-semibold leading-tight">
-                          {feature.title}
-                        </h3>
-
-                        <p className="mt-1 text-sm leading-relaxed text-white/75">
-                          {feature.description}
-                        </p>
-                      </div>
+          <aside className="rounded-2xl border border-white/18 bg-black/20 p-6 text-white backdrop-blur-md md:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              Research Focus
+            </p>
+            <div className="mt-5 divide-y divide-white/15">
+              {heroFeatures.map((feature) => {
+                const Icon = iconMap[feature.icon as keyof typeof iconMap] || Sprout
+                return (
+                  <div key={feature.title} className="flex gap-4 py-5 first:pt-0 last:pb-0">
+                    <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10">
+                      <Icon className="h-4.5 w-4.5" />
                     </div>
-
-                    <ArrowUpRight className="h-5 w-5 shrink-0 text-white/55 transition-colors group-hover:text-white" />
+                    <div>
+                      <h2 className="text-sm font-semibold">{feature.title}</h2>
+                      <p className="mt-1 text-sm leading-relaxed text-white/65">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                </Link>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          </aside>
         </div>
       </div>
 
       <Link
         href="/#about"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70 transition-colors hover:text-white"
+        className="absolute bottom-7 left-1/2 -translate-x-1/2 text-white/60 transition-colors hover:text-white"
         aria-label="Scroll to about section"
       >
-        <ArrowDown className="h-6 w-6" />
+        <ArrowDown className="h-5 w-5" />
       </Link>
     </section>
   )

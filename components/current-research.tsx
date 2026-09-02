@@ -1,89 +1,71 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
 const projects = [
   {
-    title: "UAV-based weed control in corn",
-    text: "Using UAV imagery and weed ground-cover estimates to improve field-scale understanding of the critical period of weed control.",
-    image: "/posters/previews/Kenneth_CPWC_2026_Critical_Weed_Control.jpg",
-    href: "/posters/Kenneth_CPWC_2026_Critical_Weed_Control.pdf",
+    title: "Critical period of weed control in corn",
+    text: "UAV imagery and weed ground-cover estimates are being evaluated as field-scale indicators for identifying effective weed-control timing in corn.",
     tag: "Corn · Remote Sensing",
   },
   {
     title: "Remote sensing for pulse crop management",
-    text: "Developing UAV-LiDAR tools to quantify crop growth and management responses under different seeding practices in pulse crops.",
-    image: "/posters/previews/Pantha_MAC_Poster.jpg",
-    href: "/posters/Pantha_MAC_Poster.pdf",
-    tag: "Pulses · LiDAR",
+    text: "UAV-LiDAR and multispectral sensing are used to quantify crop growth and management responses under contrasting seeding practices in pulse crops.",
+    tag: "Pulse Crops · LiDAR",
   },
   {
-    title: "Soybean canopy and weed competition",
-    text: "Tracking soybean canopy development, weed pressure, and management effects using plot-scale UAV-LiDAR measurements.",
-    image: "/posters/previews/Matt_Fallis_Digital_Ag_Soybean_LiDAR.jpg",
-    href: "/posters/Matt_Fallis_Digital_Ag_Soybean_LiDAR.pdf",
-    tag: "Soybean · LiDAR",
+    title: "Soybean canopy development and weed competition",
+    text: "Plot-scale LiDAR measurements are being used to track soybean canopy development, crop competition, and responses to seeding rate and row spacing.",
+    tag: "Soybean · Crop–Weed Competition",
   },
   {
     title: "Kochia seed production management",
-    text: "Evaluating alternative wheat seeding systems as non-chemical strategies to reduce kochia seed production and improve weed management.",
-    image: "/posters/previews/Shamima_Sultana_Kochia_Seed_Production.jpg",
-    href: "/posters/Shamima_Sultana_Kochia_Seed_Production.pdf",
-    tag: "Kochia · Weed Science",
+    text: "Alternative wheat seeding systems are being studied as non-chemical approaches to suppress kochia growth and reduce seed production.",
+    tag: "Kochia · Integrated Weed Management",
   },
 ]
 
 export function CurrentResearch() {
   return (
-    <section className="bg-background py-24 md:py-32">
+    <section className="bg-background py-24 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
-              Current Research
+              Selected Research Projects
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
-              Research happening in the field right now
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+              Current areas of investigation
             </h2>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+              Representative projects illustrate how the lab combines field experiments
+              with sensing and analytical tools across crop and weed management systems.
+            </p>
           </div>
-          <Link href="/posters" className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-            See research posters <ArrowUpRight className="h-4 w-4" />
+          <Link href="/posters" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+            View research posters <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <Link
-              key={project.title}
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative min-h-[330px] overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
-            >
-              <Image
-                src={project.image}
-                alt="Research project poster"
-                fill
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.025]"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/5" />
-              <div className="absolute inset-x-0 bottom-0 p-7 md:p-8">
-                <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/85 backdrop-blur-sm">
-                  {project.tag}
+        <div className="grid gap-x-10 gap-y-0 border-t border-border md:grid-cols-2">
+          {projects.map((project, index) => (
+            <article key={project.title} className="border-b border-border py-7 md:pr-6">
+              <div className="flex gap-5">
+                <span className="pt-0.5 text-sm font-semibold tabular-nums text-primary/65">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 max-w-xl text-2xl font-semibold text-white md:text-3xl">
-                  {project.title}
-                </h3>
-                <p className="mt-3 max-w-xl leading-relaxed text-white/78">
-                  {project.text}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
-                  View project poster
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </span>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+                    {project.tag}
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold leading-snug tracking-tight">
+                    {project.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                    {project.text}
+                  </p>
+                </div>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </div>

@@ -24,8 +24,8 @@ export default function Home() {
         <CurrentResearch />
         <Technology />
         <Team />
-        <LatestNews />
         <Publications />
+        <LatestNews />
         <Posters />
         <ContactCTA />
       </main>
