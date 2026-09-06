@@ -124,8 +124,8 @@ export const teamMembers = {
         "Crop management",
       ],
       detailedBio: [
-        "Pantha is a Master’s student in Plant Science at the University of Manitoba. His research focuses on developing UAV-based remote-sensing approaches to evaluate crop growth and best management practices in pulse crops, particularly field pea and dry bean.",
-        "His work integrates LiDAR and multispectral imagery with field-based agronomic measurements to quantify crop structural and spectral traits, including canopy development, biomass, and yield responses. He is particularly interested in digital crop phenotyping and the use of high-resolution remote-sensing data to develop practical tools for precision crop management and agricultural decision-making.",
+        "I am a Master’s student in Plant Science at the University of Manitoba. My research focuses on developing UAV-based remote-sensing approaches to evaluate crop growth and best management practices in pulse crops, particularly field pea and dry bean.",
+        "My work integrates LiDAR and multispectral imagery with field-based agronomic measurements to quantify crop structural and spectral traits, including canopy development, biomass, and yield responses. I am particularly interested in digital crop phenotyping and the use of high-resolution remote-sensing data to develop practical tools for precision crop management and agricultural decision-making.",
       ],
     },
     {
@@ -736,6 +736,24 @@ export const howToApply = {
 // ============================================
 export const newsStories = [
   {
+    slug: "ctv-new-farming-technology",
+    title: "‘Big potential for farmers’: Manitoba researchers develop new tech to maximize farming, minimize chemical use",
+    date: "September 6, 2026",
+    type: "Lab in the News",
+    image: "/images/news/ctv-precision-farming.jpg",
+    summary:
+      "CTV News Winnipeg featured University of Manitoba researchers working on new farming technology designed to support more efficient and environmentally responsible crop management.",
+    body: [
+      "The Digital Agronomy & Weeds Lab was featured in CTV News Winnipeg coverage of University of Manitoba research exploring new technologies for more precise and sustainable farming.",
+      "The CTV report highlights the potential for digital and precision-agriculture tools to help farmers make better-targeted field decisions while reducing unnecessary chemical use. This direction closely reflects DAWL’s work at the intersection of agronomy, weed science, remote sensing, and precision application.",
+      "CTV News also produced a video report on the University of Manitoba research. The full news report and video are available through the links below.",
+    ],
+    externalVideoUrl: "https://www.ctvnews.ca/video/2026/09/06/university-of-manitoba-researchers-working-on-new-farming-technology/",
+    externalVideoLabel: "Watch the CTV News video report",
+    sourceUrl: "https://www.ctvnews.ca/winnipeg/article/big-potential-for-farmers-manitoba-researchers-develop-new-tech-to-maximize-farming-minimize-chemical-use/",
+    sourceLabel: "Read the original CTV News story",
+  },
+  {
     slug: "can-farmers-grow-more-while-spraying-less",
     title: "Can farmers grow more while spraying less?",
     date: "August 25, 2026",
@@ -808,67 +826,101 @@ export const heroConfig = {
 // 3. The /gallery page automatically places it into the correct filter group.
 export const galleryImages = [
   {
-    title: "Field research site overview",
-    category: "Field Work",
-    year: "2025",
-    image: "/images/gallery/field-research-site.jpg",
-    description:
-      "Field plots and research site activities supporting DAWL crop and weed management studies.",
+    title: "DAWL team gathering",
+    category: "Team & Fun Time",
+    year: "2026",
+    image: "/images/gallery/dawl-team-group-2026.jpg",
+    description: "Members and friends of the Digital Agronomy & Weeds Lab during a 2026 team gathering.",
   },
   {
-    title: "UAV field monitoring",
+    title: "Aerial view of research plots",
     category: "Drone & Remote Sensing",
     year: "2025",
-    image: "/images/gallery/uav-field-overview.jpg",
-    description:
-      "UAV-based imaging and remote sensing workflows for crop and weed monitoring.",
+    image: "/images/gallery/research-plots-aerial.jpg",
+    description: "UAV view of field experiments used for crop management and remote-sensing research.",
   },
   {
-    title: "Drone spraying research",
+    title: "UAV platform in the field",
     category: "Drone & Remote Sensing",
     year: "2025",
-    image: "/images/gallery/drone-spraying-research.jpg",
-    description:
-      "Research activities focused on precision application and UAV-based agricultural technologies.",
+    image: "/images/gallery/uav-platform-field.jpg",
+    description: "A DAWL UAV platform prepared for field-based remote-sensing data collection.",
   },
   {
-    title: "Remote sensing analysis",
-    category: "Lab Activities",
+    title: "Multispectral sensing equipment",
+    category: "Drone & Remote Sensing",
     year: "2025",
-    image: "/images/gallery/remote-sensing-analysis.jpg",
-    description:
-      "Data processing and analysis for digital agriculture and crop monitoring projects.",
+    image: "/images/gallery/multispectral-sensor.jpg",
+    description: "Multispectral sensing equipment used to capture crop reflectance and vegetation information.",
   },
   {
-    title: "Field trials and data collection",
+    title: "UAV field setup",
+    category: "Drone & Remote Sensing",
+    year: "2025",
+    image: "/images/gallery/uav-field-setup.jpg",
+    description: "Field setup for UAV operations and high-resolution crop monitoring.",
+  },
+  {
+    title: "Field data collection",
     category: "Field Work",
     year: "2025",
-    image: "/images/gallery/field-trials-team.jpg",
-    description:
-      "Field experimentation, crop measurements, and data collection for agronomic research.",
+    image: "/images/gallery/field-data-collection.jpg",
+    description: "Crop measurements and field observations collected alongside remote-sensing flights.",
   },
   {
-    title: "Team and research activities",
+    title: "Crop field trials",
+    category: "Field Work",
+    year: "2025",
+    image: "/images/gallery/field-trial-crops.jpg",
+    description: "Field experiments supporting DAWL agronomy and crop–weed interaction research.",
+  },
+  {
+    title: "Research plots from above",
+    category: "Drone & Remote Sensing",
+    year: "2025",
+    image: "/images/gallery/research-plots-drone-view.jpg",
+    description: "Aerial view showing the spatial layout of experimental plots at the research farm.",
+  },
+  {
+    title: "Fieldwork team moment",
     category: "Team & Fun Time",
     year: "2025",
-    image: "/images/gallery/team-dilshan-field.jpg",
-    description:
-      "People and moments from DAWL research and lab activities.",
+    image: "/images/gallery/team-field-selfie.jpg",
+    description: "A team moment during the field season.",
   },
   {
-    title: "Conference and poster presentation",
+    title: "Preparing UAV equipment",
+    category: "Field Work",
+    year: "2025",
+    image: "/images/gallery/uav-field-preparation.jpg",
+    description: "Team members preparing UAV equipment for field data collection.",
+  },
+  {
+    title: "Drone lab activity",
+    category: "Lab Activities",
+    year: "2025",
+    image: "/images/gallery/drone-lab-activity.jpg",
+    description: "UAV equipment used in DAWL digital-agriculture research activities.",
+  },
+  {
+    title: "DAWL team dinner",
+    category: "Team & Fun Time",
+    year: "2025",
+    image: "/images/gallery/team-dinner.jpg",
+    description: "A lab social gathering outside the field and research environment.",
+  },
+  {
+    title: "Conference participation",
     category: "Conferences & Posters",
     year: "2025",
-    image: "/images/gallery/conference-poster.jpg",
-    description:
-      "DAWL research communication through poster presentations, meetings, and conferences.",
+    image: "/images/gallery/conference-team.jpg",
+    description: "DAWL members representing the lab at an academic event.",
   },
   {
-    title: "Outreach and field day activities",
-    category: "Outreach / Field Days",
+    title: "Research presentation",
+    category: "Conferences & Posters",
     year: "2025",
-    image: "/images/gallery/outreach-field-day.jpg",
-    description:
-      "Knowledge exchange activities with growers, researchers, and agricultural stakeholders.",
+    image: "/images/gallery/research-presentation.jpg",
+    description: "Presenting DAWL research on digital agriculture and crop sensing.",
   },
 ]

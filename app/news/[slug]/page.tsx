@@ -79,6 +79,23 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
                 />
               </div>
             )}
+
+            {"externalVideoUrl" in story && story.externalVideoUrl && (
+              <Link
+                href={story.externalVideoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-6 flex items-center justify-between gap-5 rounded-2xl border border-border bg-secondary/45 px-6 py-5 transition-colors hover:border-primary/30 hover:bg-secondary"
+              >
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-primary">CTV News video</p>
+                  <p className="mt-1 text-base font-semibold md:text-lg">
+                    {"externalVideoLabel" in story ? story.externalVideoLabel : "Watch video report"}
+                  </p>
+                </div>
+                <ExternalLink className="h-5 w-5 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            )}
           </div>
 
           <div className="mx-auto max-w-3xl px-6 py-14 md:py-18">

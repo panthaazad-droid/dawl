@@ -6,12 +6,7 @@ import { galleryImages } from "@/data/site-data"
 
 const categories = [
   "All",
-  "Field Work",
-  "Drone & Remote Sensing",
-  "Lab Activities",
-  "Conferences & Posters",
-  "Team & Fun Time",
-  "Outreach / Field Days",
+  ...Array.from(new Set(galleryImages.map((item) => item.category))),
 ]
 
 export function GalleryGrid() {

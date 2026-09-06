@@ -361,37 +361,36 @@ export default async function PeoplePage() {
                   Alumni & Former Graduate Students
                 </h2>
 
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {allAlumni.map((alum) => (
                     <article
                       key={alum.name}
-                      className="flex items-center gap-4 rounded-2xl border border-border bg-background p-5 shadow-sm"
+                      className="overflow-hidden rounded-2xl border border-border bg-background shadow-sm"
                     >
-                      <Avatar className="h-20 w-20 shrink-0 bg-primary/10">
-                        {alum.image ? (
-                          <AvatarImage
-                            src={alum.image}
-                            alt={alum.name}
-                            className="object-cover"
-                          />
-                        ) : null}
-                        <AvatarFallback className="bg-primary/10 text-lg font-semibold text-primary">
-                          {getInitials(alum.name)}
-                        </AvatarFallback>
-                      </Avatar>
+                      <div className="p-6">
+                        <div className="mx-auto aspect-square w-full max-w-[240px] overflow-hidden rounded-2xl bg-primary/10">
+                          <Avatar className="h-full w-full rounded-2xl">
+                            {alum.image ? (
+                              <AvatarImage
+                                src={alum.image}
+                                alt={alum.name}
+                                className="h-full w-full object-cover"
+                              />
+                            ) : null}
+                            <AvatarFallback className="h-full w-full rounded-2xl bg-primary/10 text-4xl font-semibold text-primary">
+                              {getInitials(alum.name)}
+                            </AvatarFallback>
+                          </Avatar>
+                        </div>
 
-                      <div className="min-w-0">
-                        <h3 className="font-semibold">{alum.name}</h3>
-
-                        <p className="mt-1 text-sm text-muted-foreground">
-                          {alum.degree}
-                        </p>
-
-                        {alum.currentPosition && (
-                          <p className="mt-2 text-sm text-primary">
-                            {alum.currentPosition}
-                          </p>
-                        )}
+                        <div className="mt-6">
+                          <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Alumna</p>
+                          <h3 className="mt-2 text-xl font-semibold tracking-tight">{alum.name}</h3>
+                          <p className="mt-1 text-sm text-muted-foreground">{alum.degree}</p>
+                          {alum.currentPosition && (
+                            <p className="mt-4 text-sm font-medium text-primary">{alum.currentPosition}</p>
+                          )}
+                        </div>
                       </div>
                     </article>
                   ))}
