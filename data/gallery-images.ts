@@ -306,27 +306,21 @@ export const galleryImages = [
     "alt": "Research and lab gallery photo 51"
   },
   {
-    "src": "/images/gallery/selected/selected-069.jpg",
-    "width": 1002,
-    "height": 1337,
-    "alt": "Research and lab gallery photo 52"
-  },
-  {
     "src": "/images/gallery/selected/selected-070.jpg",
     "width": 1800,
     "height": 1200,
-    "alt": "Research and lab gallery photo 53"
+    "alt": "Research and lab gallery photo 52"
   },
   {
     "src": "/images/gallery/selected/selected-072.jpg",
     "width": 1800,
     "height": 1349,
-    "alt": "Research and lab gallery photo 54"
+    "alt": "Research and lab gallery photo 53"
   },
   {
     "src": "/images/gallery/selected/selected-073.jpg",
     "width": 1800,
     "height": 1082,
-    "alt": "Research and lab gallery photo 55"
+    "alt": "Research and lab gallery photo 54"
   }
 ] as const
