@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="guided-scroll">
+      <main className="page-enter">
         <Hero />
         <About />
         <Research />

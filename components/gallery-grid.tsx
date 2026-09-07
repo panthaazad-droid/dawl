@@ -1,20 +1,19 @@
 "use client"
 
-import Image from "next/image"
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const images = [
-  { title: "Field research team", image: "/images/gallery/dawl-team-group-2026.jpg", position: "center 68%", wide: true },
-  { title: "Aerial team photo", image: "/images/gallery/team-aerial-2026.jpg", position: "center 44%", wide: true },
+  { title: "Field research team", image: "/images/gallery/dawl-team-group-2026.jpg", position: "center 63%" },
+  { title: "Aerial team photo", image: "/images/gallery/team-aerial-2026.jpg", position: "center 44%" },
   { title: "Field discussion", image: "/images/gallery/field-conversation-2026.jpeg", position: "center" },
   { title: "UAV in the field", image: "/images/gallery/uav-closeup-2026.jpeg", position: "center" },
-  { title: "UAV field operation", image: "/images/gallery/uav-flight-wide-2026.jpg", position: "center", wide: true },
-  { title: "Conference gathering", image: "/images/gallery/conference-group-2026.jpeg", position: "center", wide: true },
-  { title: "Research fields", image: "/images/gallery/research-fields-aerial-2024.jpg", position: "center", wide: true },
+  { title: "UAV field operation", image: "/images/gallery/uav-flight-wide-2026.jpg", position: "center" },
+  { title: "Conference gathering", image: "/images/gallery/conference-group-2026.jpeg", position: "center" },
+  { title: "Research fields", image: "/images/gallery/research-fields-aerial-2024.jpg", position: "center" },
   { title: "Multispectral sensing equipment", image: "/images/gallery/multispectral-sensor.jpg", position: "center" },
   { title: "Field data collection", image: "/images/gallery/field-data-collection.jpg", position: "center" },
-  { title: "Research plots from above", image: "/images/gallery/research-plots-drone-view.jpg", position: "center", wide: true },
+  { title: "Research plots from above", image: "/images/gallery/research-plots-drone-view.jpg", position: "center" },
   { title: "Fieldwork team moment", image: "/images/gallery/team-field-selfie.jpg", position: "center" },
 ]
 
@@ -45,18 +44,22 @@ export function GalleryGrid() {
     <>
       <section className="bg-secondary/20 py-8 md:py-10">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid auto-flow-dense gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
             {images.map((item, index) => (
               <button
                 key={item.image}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                className={`group relative overflow-hidden rounded-2xl border border-border bg-muted text-left ${item.wide ? "sm:col-span-2" : ""}`}
+                className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-border bg-muted text-left"
                 aria-label={`Open ${item.title}`}
               >
-                <div className={item.wide ? "aspect-[16/8]" : "aspect-[4/3]"}>
-                  <Image src={item.image} alt={item.title} fill className="object-cover transition-transform duration-300 group-hover:scale-[1.015]" style={{ objectPosition: item.position }} sizes={item.wide ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 100vw, 33vw"} />
-                </div>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="block h-auto w-full transition-transform duration-200 ease-out group-hover:scale-[1.01]"
+                  style={{ objectPosition: item.position }}
+                  loading="lazy"
+                />
               </button>
             ))}
           </div>
@@ -65,7 +68,7 @@ export function GalleryGrid() {
 
       {active && activeIndex !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-3 md:p-6"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4 opacity-0 animate-[lightbox-fade_180ms_ease-out_forwards] md:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={active.title}
@@ -79,14 +82,14 @@ export function GalleryGrid() {
             touchStartX.current = null
           }}
         >
-          <div className="absolute right-4 top-4 z-20 flex gap-2">
-            <a href={active.image} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white hover:bg-white/20" aria-label="Open full-size image"><Maximize2 className="h-5 w-5" /></a>
-            <button type="button" onClick={() => setActiveIndex(null)} className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white hover:bg-white/20" aria-label="Close image"><X className="h-6 w-6" /></button>
+          <div className="absolute right-4 top-4 z-20 flex gap-2 md:right-6 md:top-6">
+            <a href={active.image} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white transition-colors hover:bg-white/20" aria-label="Open full-size image"><Maximize2 className="h-5 w-5" /></a>
+            <button type="button" onClick={() => setActiveIndex(null)} className="flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white transition-colors hover:bg-white/20" aria-label="Close image"><X className="h-6 w-6" /></button>
           </div>
-          <button type="button" onClick={(e) => { e.stopPropagation(); previous() }} className="absolute left-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white hover:bg-white/20 md:left-6" aria-label="Previous image"><ChevronLeft className="h-7 w-7" /></button>
-          <button type="button" onClick={(e) => { e.stopPropagation(); next() }} className="absolute right-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white hover:bg-white/20 md:right-6" aria-label="Next image"><ChevronRight className="h-7 w-7" /></button>
-          <div className="relative h-[86vh] w-[92vw] max-w-[1600px]" onClick={(e) => e.stopPropagation()}>
-            <Image src={active.image} alt={active.title} fill className="object-contain" sizes="94vw" priority />
+          <button type="button" onClick={(e) => { e.stopPropagation(); previous() }} className="absolute left-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white transition-colors hover:bg-white/20 md:left-6" aria-label="Previous image"><ChevronLeft className="h-7 w-7" /></button>
+          <button type="button" onClick={(e) => { e.stopPropagation(); next() }} className="absolute right-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/12 text-white transition-colors hover:bg-white/20 md:right-6" aria-label="Next image"><ChevronRight className="h-7 w-7" /></button>
+          <div className="flex max-h-[88vh] max-w-[92vw] items-center justify-center overflow-hidden rounded-xl opacity-0 animate-[lightbox-image_200ms_ease-out_20ms_forwards]" onClick={(e) => e.stopPropagation()}>
+            <img src={active.image} alt={active.title} className="block max-h-[88vh] max-w-[92vw] object-contain" />
           </div>
         </div>
       )}

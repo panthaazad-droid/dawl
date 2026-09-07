@@ -30,7 +30,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
     <>
       <Header />
 
-      <main className="guided-scroll pt-24">
+      <main className="page-enter pt-24">
         <article>
           <header className="bg-background py-16 md:py-24">
             <div className="mx-auto max-w-4xl px-6">

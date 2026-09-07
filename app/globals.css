@@ -129,31 +129,36 @@ html {
 }
 
 
-/* Guided scrolling and page transitions */
-.guided-scroll > section {
-  scroll-margin-top: 72px;
+
+/* Natural scrolling and subtle page entrance */
+.page-enter {
+  animation: page-fade 180ms ease-out both;
 }
 
-.guided-scroll {
-  animation: page-enter 240ms ease-out both;
-}
-
-@keyframes page-enter {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-snap-type: y proximity;
-  }
-  .guided-scroll > section {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
+@keyframes page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .guided-scroll { animation: none; }
+  .page-enter { animation: none; }
+}
+
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lightbox-image {
+  from { opacity: 0; transform: scale(0.975); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="lightbox-fade"],
+  [class*="lightbox-image"] {
+    animation: none !important;
+    opacity: 1 !important;
+  }
 }

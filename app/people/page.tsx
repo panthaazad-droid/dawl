@@ -99,7 +99,7 @@ export default async function PeoplePage() {
   return (
     <>
       <Header />
-      <main className="guided-scroll pt-20">
+      <main className="page-enter pt-20">
         <section className="border-b border-border bg-background py-10 md:py-12">
           <div className="mx-auto max-w-7xl px-6">
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">People</h1>
