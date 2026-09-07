@@ -1,8 +1,7 @@
 export const revalidate = 180
 
-import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { newsStories } from "@/data/site-data"
@@ -10,7 +9,7 @@ import { getApprovedNewsItems } from "@/lib/google-sheet"
 
 export const metadata = {
   title: "News | Digital Agronomy and Weeds Lab",
-  description: "Research features, media coverage, and field updates.",
+  description: "Research features, media coverage, events, and lab updates.",
 }
 
 function sourceName(slug: string) {
@@ -20,49 +19,48 @@ function sourceName(slug: string) {
   return "News"
 }
 
+function category(type: string) {
+  if (type.toLowerCase().includes("news")) return "Media"
+  return type
+}
+
 export default async function NewsPage() {
   const sheetNews = await getApprovedNewsItems()
-  const [featured, ...otherStories] = newsStories
 
   return (
     <>
       <Header />
       <main className="page-enter pt-16">
-        <section className="bg-background pb-8 pt-6 md:pb-10 md:pt-7">
+        <section className="bg-background pb-12 pt-6 md:pb-14 md:pt-7">
           <div className="mx-auto max-w-7xl px-5 md:px-6">
-            <h1 className="page-title">News</h1>
+            <div className="mb-5 flex items-end justify-between gap-4 md:mb-7">
+              <h1 className="page-title">News</h1>
+              <p className="hidden max-w-md text-right text-sm leading-relaxed text-muted-foreground md:block">Media coverage, research updates, events, and milestones.</p>
+            </div>
 
-            <Link href={`/news/${featured.slug}`} className="group mt-5 grid overflow-hidden rounded-2xl bg-secondary/25 lg:grid-cols-[1.08fr_0.92fr]">
-              <div className="relative min-h-[240px] overflow-hidden sm:min-h-[300px] lg:min-h-[345px]">
-                <Image src={featured.image} alt={featured.title} fill className="object-cover transition-transform duration-200 group-hover:scale-[1.01]" sizes="(max-width: 1024px) 100vw, 54vw" />
-              </div>
-              <div className="flex flex-col justify-center p-5 sm:p-7 lg:p-8">
-                <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">{sourceName(featured.slug)} · {featured.date}</p>
-                <h2 className="mt-3 text-balance text-[clamp(1.45rem,2.4vw,2.25rem)] font-semibold leading-[1.1] tracking-tight">{featured.title}</h2>
-                <p className="mt-4 max-w-xl text-[clamp(0.95rem,1.2vw,1.05rem)] leading-relaxed text-muted-foreground">{featured.summary}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary">Read story <ArrowRight className="h-4 w-4" /></span>
-              </div>
-            </Link>
-
-            <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {otherStories.map((story) => (
-                <Link key={story.slug} href={`/news/${story.slug}`} className="group overflow-hidden rounded-2xl bg-secondary/20 transition-colors hover:bg-secondary/35">
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <Image src={story.image} alt={story.title} fill className="object-cover transition-transform duration-200 group-hover:scale-[1.01]" sizes="(max-width: 768px) 100vw, 33vw" />
+            <div className="grid gap-x-9 gap-y-0 md:grid-cols-2 xl:grid-cols-3">
+              {newsStories.map((story) => (
+                <Link key={story.slug} href={`/news/${story.slug}`} className="group border-t border-border py-5 md:py-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="inline-flex min-w-[108px] items-center justify-center rounded-sm bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground">
+                      {category(story.type)}
+                    </span>
+                    <span className="text-sm font-medium text-muted-foreground">{story.date}</span>
                   </div>
-                  <div className="p-5">
-                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-primary">{sourceName(story.slug)}</p>
-                    <h2 className="mt-2 text-lg font-semibold leading-snug">{story.title}</h2>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">{story.summary}</p>
-                  </div>
+                  <h2 className="mt-4 text-[clamp(1.15rem,1.6vw,1.35rem)] font-medium leading-snug tracking-tight transition-colors group-hover:text-primary">{story.title}</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{story.summary}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary opacity-80 transition-opacity group-hover:opacity-100">{sourceName(story.slug)} <ArrowUpRight className="h-4 w-4" /></span>
                 </Link>
               ))}
 
               {sheetNews.map((item, index) => (
-                <article key={`${item.title}-${index}`} className="rounded-2xl bg-secondary/20 p-5">
-                  <p className="text-xs text-muted-foreground">{item.date}</p>
-                  <h2 className="mt-2 text-lg font-semibold">{item.title}</h2>
-                  {item.link && <Link href={item.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-sm text-primary hover:underline">Visit source <ExternalLink className="h-4 w-4" /></Link>}
+                <article key={`${item.title}-${index}`} className="border-t border-border py-5 md:py-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="inline-flex min-w-[108px] items-center justify-center rounded-sm border border-primary/30 px-3 py-1.5 text-xs font-semibold text-primary">Update</span>
+                    <span className="text-sm font-medium text-muted-foreground">{item.date}</span>
+                  </div>
+                  <h2 className="mt-4 text-[clamp(1.15rem,1.6vw,1.35rem)] font-medium leading-snug tracking-tight">{item.title}</h2>
+                  {item.link && <Link href={item.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">View update <ArrowUpRight className="h-4 w-4" /></Link>}
                 </article>
               ))}
             </div>

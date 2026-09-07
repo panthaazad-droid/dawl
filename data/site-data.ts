@@ -716,7 +716,7 @@ export const newsStories = [
   {
     slug: "using-drones-for-precision-weed-control",
     title: "Using drones for precision weed control",
-    date: "Featured Media",
+    date: "2026",
     type: "Media",
     image: "/images/gallery/uav-closeup-2026.jpeg",
     summary:

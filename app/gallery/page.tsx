@@ -12,7 +12,7 @@ export default function GalleryPage() {
     <>
       <Header />
       <main className="page-enter pt-16">
-        <section className="bg-background pb-4 pt-6 md:pb-5 md:pt-7">
+        <section className="bg-background pb-2 pt-5 md:pb-3 md:pt-6">
           <div className="mx-auto max-w-7xl px-5 md:px-6">
             <h1 className="page-title">Gallery</h1>
           </div>
