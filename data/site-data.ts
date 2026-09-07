@@ -221,16 +221,20 @@ export const teamMembers = {
         "I am an M.Sc. student studying weed–crop interactions in maize. My research focuses on understanding how weed competition influences crop performance and how those relationships can inform more effective weed-management strategies.",
       ],
     },
-  ],
-
-  alumni: [
     {
       name: "Uthpala Ekanayake",
-      degree: "M.Sc., University of Manitoba",
+      degree: "M.Sc. Student",
       image: "/images/team/Uthpala.jpg",
-      currentPosition: "DAWL alumna",
+      project: "Integrated crop management, weed phenology, and weed seed persistence in spring wheat",
+      detailedBio: [
+        "I am a Master’s student in Weed Science at the University of Manitoba. My research focuses on the effects of Integrated Crop Management (ICM) on weed phenology and weed seed persistence, with the goal of optimizing cultural and nutrient-management strategies to improve weed control and crop competitiveness in spring wheat systems.",
+        "My work contributes to integrated weed-management approaches that reduce reliance on herbicides by using crop and nutrient management to influence weed development and persistence.",
+        "My academic and research work has been recognized with the First Place M.Sc. Graduate Student Scholarship from the Canadian Weed Science Society in 2025, the Ian N. Morrison Award for Advanced Studies in Crop Protection in 2025, and the University of Manitoba Graduate Fellowship for 2023–2024. I was also Second Runner-Up in the Agronomy and Cropping Systems oral session at the 40th Plant Science Graduate Student Symposium in 2025.",
+      ],
     },
   ],
+
+  alumni: [],
 }
 
 // This keeps compatibility with any page/component that imports gradStudents directly
