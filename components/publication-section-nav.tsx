@@ -32,7 +32,7 @@ export function PublicationSectionNav() {
   }
 
   return (
-    <div className="sticky top-[68px] z-40 border-b border-border bg-background/95 backdrop-blur-sm">
+    <div className="sticky top-14 z-40 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl gap-2 px-6 py-3">
         {items.map((item) => (
           <button

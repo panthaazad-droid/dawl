@@ -17,7 +17,7 @@ export async function Publications() {
   const featured = [...sheetPublications, ...publications].slice(0, 3)
 
   return (
-    <section id="publications" className="bg-secondary/30 py-16 md:py-20">
+    <section id="publications" className="bg-secondary/30 py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 flex items-end justify-between gap-6">
           <div>

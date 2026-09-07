@@ -8,7 +8,7 @@ export async function LatestNews() {
   if (!stories.length) return null
 
   return (
-    <section id="news" className="border-y border-border bg-background py-16 md:py-20">
+    <section id="news" className="border-y border-border bg-background py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 flex items-end justify-between gap-6">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Latest news</h2>

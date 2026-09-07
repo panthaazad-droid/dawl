@@ -11,21 +11,21 @@ export function Contact() {
   ].filter(Boolean) as { label: string; value: string; icon: typeof Mail; href: string }[]
 
   return (
-    <section className="bg-secondary/20 py-10 md:py-12">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="grid gap-4 sm:grid-cols-2">
+    <section className="bg-secondary/15 pb-12 pt-3 md:pb-14 md:pt-4">
+      <div className="mx-auto max-w-5xl px-5 md:px-6">
+        <div className="grid gap-3 sm:grid-cols-2">
           {items.map((item) => {
             const Icon = item.icon
             const content = (
-              <div className="flex gap-4 rounded-2xl border border-border bg-background p-5 transition-colors hover:border-primary/25">
+              <div className="flex min-h-[108px] gap-4 rounded-2xl bg-background p-4 sm:p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon className="h-5 w-5" /></div>
-                <div>
-                  <p className="text-sm font-medium">{item.label}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.value}</p>
+                <div className="min-w-0">
+                  <p className="text-[clamp(0.9rem,1.3vw,1rem)] font-medium">{item.label}</p>
+                  <p className="mt-1 break-words text-[clamp(0.86rem,1.2vw,0.98rem)] leading-relaxed text-muted-foreground">{item.value}</p>
                 </div>
               </div>
             )
-            return item.href ? <Link key={item.label} href={item.href}>{content}</Link> : <div key={item.label}>{content}</div>
+            return item.href ? <Link key={item.label} href={item.href} className="rounded-2xl transition-colors hover:bg-secondary/30">{content}</Link> : <div key={item.label}>{content}</div>
           })}
         </div>
       </div>

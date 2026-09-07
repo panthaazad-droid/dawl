@@ -5,7 +5,7 @@ const icons = { crosshair: Crosshair, sprout: Sprout, scan: ScanLine, barChart: 
 
 export function Research() {
   return (
-    <section id="research" className="bg-secondary/30 py-16 md:py-20">
+    <section id="research" className="bg-secondary/30 py-12 md:py-14">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-9 max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Research themes</h2>

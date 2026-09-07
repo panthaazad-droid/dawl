@@ -7,10 +7,10 @@ export function Hero() {
   const hasBackgroundImage = heroConfig.useBackgroundImage && heroConfig.backgroundImage
 
   return (
-    <section className="relative flex min-h-[88vh] items-center overflow-hidden pt-20">
+    <section className="relative flex min-h-[88vh] items-center overflow-hidden pt-16">
       {hasBackgroundImage ? (
         <div className="absolute inset-0">
-          <Image src={heroConfig.backgroundImage} alt="Aerial view of agricultural research fields" fill className="object-cover" priority />
+          <Image src={heroConfig.backgroundImage} alt="Aerial view of agricultural research plots and Prairie fields" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/56 to-black/25" />
         </div>
       ) : (

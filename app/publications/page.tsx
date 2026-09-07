@@ -38,23 +38,23 @@ export default function PublicationsPage() {
   return (
     <>
       <Header />
-      <main className="page-enter pt-20">
-        <section className="border-b border-border bg-background py-8 md:py-10">
+      <main className="page-enter pt-16">
+        <section className="border-b border-border bg-background py-6 md:py-7">
           <div className="mx-auto max-w-7xl px-6">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Publications</h1>
+            <h1 className="page-title">Publications</h1>
           </div>
         </section>
 
         <PublicationSectionNav />
 
-        <section id="journal-publications" className="scroll-mt-32 bg-secondary/20 py-10 md:py-12">
+        <section id="journal-publications" className="scroll-mt-32 bg-secondary/20 py-6 md:py-7">
           <div className="mx-auto max-w-7xl px-6">
             <h2 className="mb-6 text-2xl font-semibold tracking-tight">Journal publications</h2>
-            <div className="overflow-hidden rounded-2xl border border-border bg-background">
+            <div className="border-t border-border">
               {publications.map((pub, index) => {
                 const href = publicationLink(pub)
                 return (
-                  <article key={`${pub.title}-${index}`} className="grid gap-3 border-b border-border p-5 last:border-b-0 md:grid-cols-[72px_1fr_auto] md:p-6">
+                  <article key={`${pub.title}-${index}`} className="grid gap-3 border-b border-border py-5 md:grid-cols-[72px_1fr_auto] md:py-6">
                     <span className="font-mono text-sm text-primary">{pub.year || "—"}</span>
                     <div className="min-w-0">
                       <h3 className="font-medium leading-snug md:text-lg">{href ? <Link href={href} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline">{pub.title}</Link> : pub.title}</h3>
@@ -69,7 +69,7 @@ export default function PublicationsPage() {
           </div>
         </section>
 
-        <section id="posters" className="scroll-mt-32 bg-background py-10 md:py-12">
+        <section id="posters" className="scroll-mt-32 bg-background py-7 md:py-8">
           <div className="mx-auto max-w-7xl px-6">
             <h2 className="mb-6 text-2xl font-semibold tracking-tight">Posters & abstracts</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

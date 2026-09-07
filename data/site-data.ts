@@ -684,7 +684,7 @@ export const newsStories = [
     title: "‘Big potential for farmers’: Manitoba researchers develop new tech to maximize farming, minimize chemical use",
     date: "September 6, 2026",
     type: "Lab in the News",
-    image: "/images/news/ctv-precision-farming.jpg",
+    image: "/images/news/ctv-field-tech.jpg",
     summary:
       "CTV News Winnipeg featured University of Manitoba researchers working on new farming technology designed to support more efficient and environmentally responsible crop management.",
     body: [
@@ -702,7 +702,7 @@ export const newsStories = [
     title: "Can farmers grow more while spraying less?",
     date: "August 25, 2026",
     type: "Lab in the News",
-    image: "/images/hero-bg.jpg",
+    image: "/images/news/umtoday-field-tech.jpg",
     summary:
       "UM Today featured Dr. Dilshan Benaragama, student researchers, and collaborative precision-agriculture work aimed at turning drone and sensor data into practical, targeted field management.",
     body: [
@@ -718,7 +718,7 @@ export const newsStories = [
     title: "Using drones for precision weed control",
     date: "Featured Media",
     type: "Media",
-    image: "/images/hero-bg.jpg",
+    image: "/images/gallery/uav-closeup-2026.jpeg",
     summary:
       "In an AGronomyTV feature, Dr. Dilshan Benaragama discusses how drones and digital tools can support more precise weed management.",
     body: [

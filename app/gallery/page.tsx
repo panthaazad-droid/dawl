@@ -11,10 +11,10 @@ export default function GalleryPage() {
   return (
     <>
       <Header />
-      <main className="page-enter pt-20">
-        <section className="border-b border-border bg-background py-10 md:py-12">
-          <div className="mx-auto max-w-7xl px-6">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Gallery</h1>
+      <main className="page-enter pt-16">
+        <section className="bg-background pb-4 pt-6 md:pb-5 md:pt-7">
+          <div className="mx-auto max-w-7xl px-5 md:px-6">
+            <h1 className="page-title">Gallery</h1>
           </div>
         </section>
         <GalleryGrid />

@@ -99,14 +99,14 @@ export default async function PeoplePage() {
   return (
     <>
       <Header />
-      <main className="page-enter pt-20">
-        <section className="border-b border-border bg-background py-10 md:py-12">
+      <main className="page-enter pt-16">
+        <section className="border-b border-border bg-background py-6 md:py-7">
           <div className="mx-auto max-w-7xl px-6">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">People</h1>
+            <h1 className="page-title">People</h1>
           </div>
         </section>
 
-        <section className="bg-secondary/20 py-10 md:py-12">
+        <section className="bg-secondary/20 py-7 md:py-8">
           <div className="mx-auto max-w-7xl px-6">
             <article className="grid gap-6 rounded-2xl border border-border bg-background p-5 md:grid-cols-[180px_1fr] md:items-center md:p-6">
               <div className="mx-auto aspect-[4/5] w-full max-w-[180px] overflow-hidden rounded-xl bg-primary/10">

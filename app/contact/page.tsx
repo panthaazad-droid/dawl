@@ -11,11 +11,11 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="page-enter pt-20">
-        <section className="border-b border-border bg-background py-10 md:py-12">
-          <div className="mx-auto max-w-5xl px-6">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Get in touch</h1>
-            <p className="mt-3 text-muted-foreground">Department of Plant Science · University of Manitoba</p>
+      <main className="page-enter pt-16">
+        <section className="bg-background pb-5 pt-6 md:pb-6 md:pt-7">
+          <div className="mx-auto max-w-5xl px-5 md:px-6">
+            <h1 className="page-title">Get in touch</h1>
+            <p className="mt-2 text-[clamp(0.95rem,1.4vw,1.08rem)] text-muted-foreground">Contact Dr. Dilshan Benaragama.</p>
           </div>
         </section>
         <Contact />

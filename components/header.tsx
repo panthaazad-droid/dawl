@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/data/site-data"
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/people", label: "People" },
   { href: "/publications", label: "Publications" },
   { href: "/gallery", label: "Gallery" },
@@ -20,23 +21,28 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    return pathname === href || (href === "/news" && pathname.startsWith("/news/"))
+  }
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
-      <nav className="mx-auto max-w-7xl px-6 py-3">
+      <nav className="mx-auto max-w-7xl px-5 py-2 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3" aria-label="Home">
-            <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-md ring-1 ring-black/5">
-              <Image src="/images/brand/dawl-logo.png" alt="DAWL logo" fill className="object-cover" sizes="44px" priority />
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md ring-1 ring-black/5">
+              <Image src="/images/brand/dawl-logo.png" alt="DAWL logo" fill className="object-cover" sizes="40px" priority />
             </div>
             <div className="hidden sm:block">
-              <span className="block text-base font-semibold leading-tight tracking-tight">{siteConfig.labAcronym}</span>
-              <span className="text-xs text-muted-foreground">{siteConfig.labName}</span>
+              <span className="block text-[15px] font-semibold leading-tight tracking-tight">{siteConfig.labAcronym}</span>
+              <span className="text-[11px] text-muted-foreground">{siteConfig.labName}</span>
             </div>
           </Link>
 
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             {navLinks.map((link) => {
-              const active = pathname === link.href || (link.href === "/news" && pathname.startsWith("/news/"))
+              const active = isActive(link.href)
               return (
                 <Link
                   key={link.href}
@@ -56,13 +62,21 @@ export function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="mt-3 border-t border-border pt-3 lg:hidden">
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} onClick={() => setMobileMenuOpen(false)} className="rounded-lg px-3 py-2 text-sm hover:bg-secondary">
-                  {link.label}
-                </Link>
-              ))}
+          <div className="mt-2 border-t border-border pt-2 lg:hidden">
+            <div className="flex flex-col gap-1 pb-1">
+              {navLinks.map((link) => {
+                const active = isActive(link.href)
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`rounded-lg px-3 py-2 text-sm ${active ? "bg-primary/10 font-medium text-primary" : "hover:bg-secondary"}`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         )}
