@@ -2,6 +2,7 @@ import { ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PublicationSectionNav } from "@/components/publication-section-nav"
 import { posters, publications } from "@/data/site-data"
 
 export const metadata = {
@@ -37,18 +38,16 @@ export default function PublicationsPage() {
   return (
     <>
       <Header />
-      <main className="pt-20">
-        <section className="border-b border-border bg-background py-10 md:py-12">
+      <main className="guided-scroll pt-20">
+        <section className="border-b border-border bg-background py-8 md:py-10">
           <div className="mx-auto max-w-7xl px-6">
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">Publications</h1>
-            <nav className="mt-5 flex flex-wrap gap-4 text-sm">
-              <Link href="#journal-publications" className="font-medium text-primary hover:underline">Journal publications</Link>
-              <Link href="#posters" className="text-muted-foreground hover:text-primary">Posters & abstracts</Link>
-            </nav>
           </div>
         </section>
 
-        <section id="journal-publications" className="scroll-mt-24 bg-secondary/20 py-10 md:py-12">
+        <PublicationSectionNav />
+
+        <section id="journal-publications" className="scroll-mt-32 bg-secondary/20 py-10 md:py-12">
           <div className="mx-auto max-w-7xl px-6">
             <h2 className="mb-6 text-2xl font-semibold tracking-tight">Journal publications</h2>
             <div className="overflow-hidden rounded-2xl border border-border bg-background">
@@ -70,7 +69,7 @@ export default function PublicationsPage() {
           </div>
         </section>
 
-        <section id="posters" className="scroll-mt-24 bg-background py-10 md:py-12">
+        <section id="posters" className="scroll-mt-32 bg-background py-10 md:py-12">
           <div className="mx-auto max-w-7xl px-6">
             <h2 className="mb-6 text-2xl font-semibold tracking-tight">Posters & abstracts</h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="guided-scroll pt-20">
         <section className="border-b border-border bg-background py-10 md:py-12">
           <div className="mx-auto max-w-7xl px-6">
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">About</h1>
@@ -31,7 +31,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative aspect-[16/8] overflow-hidden rounded-2xl border border-border">
-              <Image src="/images/gallery/dawl-team-group-2026.jpg" alt="Lab group" fill className="object-cover" style={{ objectPosition: "center 58%" }} sizes="(max-width: 1024px) 100vw, 55vw" />
+              <Image src="/images/gallery/dawl-team-group-2026.jpg" alt="Lab group" fill className="object-cover" style={{ objectPosition: "center 68%" }} sizes="(max-width: 1024px) 100vw, 55vw" />
             </div>
           </div>
         </section>

@@ -112,21 +112,8 @@ export const teamMembers = {
     {
       name: "Pantha Azad",
       degree: "M.Sc. Student",
-      image: "/images/team/Pantho.jpg",
-      project: "UAV remote sensing for crop growth and management in pulse crops",
-      researchInterests: [
-        "UAV remote sensing",
-        "LiDAR",
-        "Multispectral imaging",
-        "Precision agriculture",
-        "Digital crop phenotyping",
-        "Pulse crops",
-        "Crop management",
-      ],
-      detailedBio: [
-        "I am a Master’s student in Plant Science at the University of Manitoba. My research focuses on developing UAV-based remote-sensing approaches to evaluate crop growth and best management practices in pulse crops, particularly field pea and dry bean.",
-        "My work integrates LiDAR and multispectral imagery with field-based agronomic measurements to quantify crop structural and spectral traits, including canopy development, biomass, and yield responses. I am particularly interested in digital crop phenotyping and the use of high-resolution remote-sensing data to develop practical tools for precision crop management and agricultural decision-making.",
-      ],
+      image: "/images/team/Pantha-Azad-2026.jpg",
+      project: "",
     },
     {
       name: "Shamima Sultana",
@@ -687,49 +674,6 @@ export const posters = [
     preview: "/posters/previews/Kenneth_CPWC_2026.jpg",
   },
 ]
-
-// ============================================
-// OPPORTUNITIES
-// ============================================
-export const opportunitiesConfig = {
-  intro:
-    "We are always interested in motivated students and researchers to join our lab. Opportunities may be available for graduate students, postdoctoral researchers, and research assistants.",
-  graduateProgramsLink:
-    "https://umanitoba.ca/agricultural-food-sciences/plant-science#graduate-programs",
-}
-
-export const opportunities = [
-  {
-    title: "Graduate Students (MSc / PhD)",
-    type: "Graduate",
-    description:
-      "We welcome applications from highly motivated students interested in weed science, precision agriculture, and UAV-based technologies.",
-    requirements: [
-      "Background in plant science, agronomy, data science, or related fields",
-      "Interest in field research and digital agriculture",
-      "Strong communication and analytical skills",
-    ],
-    deadline: "Open",
-  },
-  {
-    title: "Postdoctoral Researchers",
-    type: "Postdoc",
-    description:
-      "Opportunities may be available for postdoctoral researchers with strong backgrounds in agronomy, remote sensing, weed science, or data-driven agriculture.",
-    requirements: [
-      "Ph.D. in a relevant discipline",
-      "Experience with field research, remote sensing, or statistical modelling",
-      "Strong publication and collaboration record",
-    ],
-    deadline: "Open",
-  },
-]
-
-export const howToApply = {
-  title: "How to Apply",
-  description:
-    "Interested applicants are encouraged to contact Dr. Dilshan Benaragama with a CV, statement of research interests, and academic transcripts.",
-}
 
 // ============================================
 // NEWS & STORIES

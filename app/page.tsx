@@ -5,7 +5,6 @@ import { Hero } from "@/components/hero"
 import { LatestNews } from "@/components/latest-news"
 import { Publications } from "@/components/publications"
 import { Research } from "@/components/research"
-import { Team } from "@/components/team"
 
 export const revalidate = 180
 
@@ -13,11 +12,10 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="homepage-sections">
+      <main className="guided-scroll">
         <Hero />
         <About />
         <Research />
-        <Team />
         <LatestNews />
         <Publications />
       </main>

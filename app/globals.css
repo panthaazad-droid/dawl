@@ -128,15 +128,32 @@ html {
   scroll-behavior: smooth;
 }
 
-.homepage-sections > section {
-  scroll-margin-top: 68px;
+
+/* Guided scrolling and page transitions */
+.guided-scroll > section {
+  scroll-margin-top: 72px;
+}
+
+.guided-scroll {
+  animation: page-enter 240ms ease-out both;
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
   html {
     scroll-snap-type: y proximity;
   }
-  .homepage-sections > section {
+  .guided-scroll > section {
     scroll-snap-align: start;
+    scroll-snap-stop: normal;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .guided-scroll { animation: none; }
 }
