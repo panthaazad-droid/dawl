@@ -42,12 +42,6 @@ export const galleryImages = [
     "alt": "Research and lab gallery photo 7"
   },
   {
-    "src": "/images/gallery/selected/selected-008.jpg",
-    "width": 1800,
-    "height": 1355,
-    "alt": "Research and lab gallery photo 8"
-  },
-  {
     "src": "/images/gallery/selected/selected-009.jpg",
     "width": 1157,
     "height": 1536,
@@ -88,12 +82,6 @@ export const galleryImages = [
     "width": 1536,
     "height": 1157,
     "alt": "Research and lab gallery photo 15"
-  },
-  {
-    "src": "/images/gallery/selected/selected-016.jpg",
-    "width": 1157,
-    "height": 1536,
-    "alt": "Research and lab gallery photo 16"
   },
   {
     "src": "/images/gallery/selected/selected-017.jpg",
@@ -168,24 +156,6 @@ export const galleryImages = [
     "alt": "Research and lab gallery photo 28"
   },
   {
-    "src": "/images/gallery/selected/selected-029.jpg",
-    "width": 1800,
-    "height": 1350,
-    "alt": "Research and lab gallery photo 29"
-  },
-  {
-    "src": "/images/gallery/selected/selected-030.jpg",
-    "width": 1800,
-    "height": 1350,
-    "alt": "Research and lab gallery photo 30"
-  },
-  {
-    "src": "/images/gallery/selected/selected-031.jpg",
-    "width": 1800,
-    "height": 811,
-    "alt": "Research and lab gallery photo 31"
-  },
-  {
     "src": "/images/gallery/selected/selected-032.jpg",
     "width": 1800,
     "height": 811,
@@ -196,12 +166,6 @@ export const galleryImages = [
     "width": 1800,
     "height": 811,
     "alt": "Research and lab gallery photo 33"
-  },
-  {
-    "src": "/images/gallery/selected/selected-034.jpg",
-    "width": 864,
-    "height": 648,
-    "alt": "Research and lab gallery photo 34"
   },
   {
     "src": "/images/gallery/selected/selected-035.jpg",
@@ -234,22 +198,10 @@ export const galleryImages = [
     "alt": "Research and lab gallery photo 39"
   },
   {
-    "src": "/images/gallery/selected/selected-040.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 40"
-  },
-  {
     "src": "/images/gallery/selected/selected-041.jpg",
     "width": 1800,
     "height": 841,
     "alt": "Research and lab gallery photo 41"
-  },
-  {
-    "src": "/images/gallery/selected/selected-042.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 42"
   },
   {
     "src": "/images/gallery/selected/selected-043.jpg",
@@ -258,40 +210,10 @@ export const galleryImages = [
     "alt": "Research and lab gallery photo 43"
   },
   {
-    "src": "/images/gallery/selected/selected-044.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 44"
-  },
-  {
-    "src": "/images/gallery/selected/selected-045.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 45"
-  },
-  {
-    "src": "/images/gallery/selected/selected-046.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 46"
-  },
-  {
     "src": "/images/gallery/selected/selected-047.jpg",
     "width": 1800,
     "height": 1355,
     "alt": "Research and lab gallery photo 47"
-  },
-  {
-    "src": "/images/gallery/selected/selected-048.jpg",
-    "width": 932,
-    "height": 1080,
-    "alt": "Research and lab gallery photo 48"
-  },
-  {
-    "src": "/images/gallery/selected/selected-049.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 49"
   },
   {
     "src": "/images/gallery/selected/selected-050.jpg",
@@ -310,18 +232,6 @@ export const galleryImages = [
     "width": 1536,
     "height": 1157,
     "alt": "Research and lab gallery photo 52"
-  },
-  {
-    "src": "/images/gallery/selected/selected-053.jpg",
-    "width": 1800,
-    "height": 1200,
-    "alt": "Research and lab gallery photo 53"
-  },
-  {
-    "src": "/images/gallery/selected/selected-054.jpg",
-    "width": 1800,
-    "height": 1200,
-    "alt": "Research and lab gallery photo 54"
   },
   {
     "src": "/images/gallery/selected/selected-055.jpg",
@@ -430,11 +340,5 @@ export const galleryImages = [
     "width": 1800,
     "height": 1349,
     "alt": "Research and lab gallery photo 72"
-  },
-  {
-    "src": "/images/gallery/selected/selected-073.jpg",
-    "width": 1800,
-    "height": 1082,
-    "alt": "Research and lab gallery photo 73"
   }
-] as const
+]
