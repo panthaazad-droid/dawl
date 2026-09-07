@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!story) return {}
 
   return {
-    title: `${story.title} | DAWL News & Stories`,
+    title: `${story.title} | News`,
     description: story.summary,
   }
 }
@@ -39,7 +39,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
                 className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Back to News & Stories
+                Back to News
               </Link>
 
               <div className="flex flex-wrap items-center gap-3 text-xs font-medium uppercase tracking-[0.16em] text-primary">

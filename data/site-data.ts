@@ -44,7 +44,7 @@ export const principalInvestigator = {
     "Precision Agriculture",
     "UAV Remote Sensing",
   ],
-  bio: "Dr. Benaragama leads the Digital Agronomy and Weeds Lab at the University of Manitoba. His research focuses on developing innovative approaches to weed management and crop production using digital agriculture, UAV-based sensing, remote sensing, and data-driven decision support tools.",
+  bio: "Dr. Benaragama’s research focuses on innovative approaches to weed management and crop production using digital agriculture, UAV-based sensing, remote sensing, and data-driven decision-support tools.",
   email: "dilshan.benaragama@umanitoba.ca",
   googleScholar: "https://scholar.google.com/citations?hl=en&user=zGFfSUAAAAAJ",
 }
@@ -744,8 +744,8 @@ export const newsStories = [
     summary:
       "CTV News Winnipeg featured University of Manitoba researchers working on new farming technology designed to support more efficient and environmentally responsible crop management.",
     body: [
-      "The Digital Agronomy & Weeds Lab was featured in CTV News Winnipeg coverage of University of Manitoba research exploring new technologies for more precise and sustainable farming.",
-      "The CTV report highlights the potential for digital and precision-agriculture tools to help farmers make better-targeted field decisions while reducing unnecessary chemical use. This direction closely reflects DAWL’s work at the intersection of agronomy, weed science, remote sensing, and precision application.",
+      "The lab was featured in CTV News Winnipeg coverage of University of Manitoba research exploring new technologies for more precise and sustainable farming.",
+      "The CTV report highlights the potential for digital and precision-agriculture tools to help farmers make better-targeted field decisions while reducing unnecessary chemical use. This direction closely reflects our work at the intersection of agronomy, weed science, remote sensing, and precision application.",
       "CTV News also produced a video report on the University of Manitoba research. The full news report and video are available through the links below.",
     ],
     externalVideoUrl: "https://www.ctvnews.ca/video/2026/09/06/university-of-manitoba-researchers-working-on-new-farming-technology/",
@@ -762,9 +762,9 @@ export const newsStories = [
     summary:
       "UM Today featured Dr. Dilshan Benaragama, student researchers, and collaborative precision-agriculture work aimed at turning drone and sensor data into practical, targeted field management.",
     body: [
-      "The Digital Agronomy & Weeds Lab was featured by UM Today in a story highlighting research led by Dr. Dilshan Benaragama and collaborators on the next generation of precision agriculture tools.",
+      "UM Today featured research led by Dr. Dilshan Benaragama and collaborators on the next generation of precision agriculture tools.",
       "The work builds on field scouting with drones, satellites, and sensors by focusing on how precision information can be translated into action. New research infrastructure will support testing of precision spraying, variable-rate seeding, and other technologies designed to apply inputs only where they are needed.",
-      "For DAWL, this work reflects a central research goal: connecting digital sensing, agronomy, and weed science with practical decision-making that can improve efficiency while reducing unnecessary chemical use.",
+      "This work reflects a central research goal: connecting digital sensing, agronomy, and weed science with practical decision-making that can improve efficiency while reducing unnecessary chemical use.",
     ],
     sourceUrl: "https://umtoday.ca/stories/can-farmers-grow-more-while-spraying-less",
     sourceLabel: "Read the original UM Today story",
@@ -779,7 +779,7 @@ export const newsStories = [
       "In an AGronomyTV feature, Dr. Dilshan Benaragama discusses how drones and digital tools can support more precise weed management.",
     body: [
       "Dr. Dilshan Benaragama discusses the role of drones in precision weed management and how high-resolution field information can support more targeted decisions.",
-      "The feature connects directly with DAWL's broader work in UAV remote sensing, weed detection, precision application, and data-driven crop management.",
+      "The feature connects directly with broader work in UAV remote sensing, weed detection, precision application, and data-driven crop management.",
     ],
     videoId: "1uOwfE75qiA",
     videoStart: 47,

@@ -123,3 +123,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.homepage-sections > section {
+  scroll-margin-top: 68px;
+}
+
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  .homepage-sections > section {
+    scroll-snap-align: start;
+  }
+}
