@@ -17,7 +17,7 @@ export default function ContactPage() {
             <h1 className="page-title">Get in touch</h1>
             <div className="mt-3 flex items-center gap-3 text-[clamp(0.9rem,1.25vw,1rem)] text-muted-foreground">
               <span className="h-px w-8 bg-primary/50" aria-hidden="true" />
-              <p><span className="font-medium text-foreground">Dr. Dilshan Benaragama</span> · Principal Investigator</p>
+              <p><span className="font-medium text-foreground">Dr. Dilshan Benaragama</span></p>
             </div>
           </div>
         </section>

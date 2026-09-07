@@ -684,7 +684,6 @@ export const newsStories = [
     title: "‘Big potential for farmers’: Manitoba researchers develop new tech to maximize farming, minimize chemical use",
     date: "September 6, 2026",
     type: "Lab in the News",
-    image: "/images/news/ctv-field-tech.jpg",
     summary:
       "CTV News Winnipeg featured University of Manitoba researchers working on new farming technology designed to support more efficient and environmentally responsible crop management.",
     body: [
@@ -702,7 +701,6 @@ export const newsStories = [
     title: "Can farmers grow more while spraying less?",
     date: "August 25, 2026",
     type: "Lab in the News",
-    image: "/images/news/umtoday-field-tech.jpg",
     summary:
       "UM Today featured Dr. Dilshan Benaragama, student researchers, and collaborative precision-agriculture work aimed at turning drone and sensor data into practical, targeted field management.",
     body: [

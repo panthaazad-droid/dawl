@@ -13,7 +13,7 @@ export function PiSpotlight() {
               alt="Dr. Dilshan Benaragama working with UAV research equipment in the lab"
               fill
               className="object-cover"
-              style={{ objectPosition: "center 52%" }}
+              style={{ objectPosition: "33% 52%" }}
               sizes="(max-width: 1024px) 100vw, 53vw"
             />
           </div>

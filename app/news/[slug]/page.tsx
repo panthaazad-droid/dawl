@@ -67,7 +67,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
                   allowFullScreen
                 />
               </div>
-            ) : (
+            ) : "image" in story && story.image ? (
               <div className="relative h-[340px] overflow-hidden rounded-3xl border border-border shadow-sm md:h-[520px]">
                 <Image
                   src={story.image}
@@ -78,7 +78,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
                   priority
                 />
               </div>
-            )}
+            ) : null}
 
             {"externalVideoUrl" in story && story.externalVideoUrl && (
               <Link
