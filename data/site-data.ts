@@ -108,30 +108,48 @@ export const teamMembers = {
       degree: "M.Sc. Student",
       image: "/images/team/Shirmith.jpg",
       project: "Machine learning for weed detection",
+      detailedBio: [
+        "I am an M.Sc. student working on machine-learning approaches for weed detection. My research explores how data-driven and image-based methods can improve weed identification and support more precise weed-management decisions.",
+      ],
     },
     {
       name: "Pantha Azad",
       degree: "M.Sc. Student",
       image: "/images/team/Pantha-Azad-2026.jpg",
-      project: "",
+      project: "UAV remote sensing for crop growth and management in pulse crops",
+      detailedBio: [
+        "I am an M.Sc. student in Plant Science working on UAV-based remote-sensing tools for field pea and dry bean. My research evaluates how LiDAR and multispectral measurements can quantify crop growth and management responses under different seeding times and seeding rates.",
+        "I am particularly interested in digital crop phenotyping and in translating high-resolution structural and spectral data into practical indicators of canopy development, biomass, and yield.",
+      ],
     },
     {
       name: "Shamima Sultana",
       degree: "M.Sc. Student",
       image: "/images/team/Soma.jpg",
-      project: "Kochia seedbank management",
+      project: "Kochia seed production and alternative wheat seeding systems",
+      detailedBio: [
+        "I am an M.Sc. student studying how alternative wheat seeding systems can be used to reduce kochia seed production. My research examines how wheat planting time changes the critical period for weed seed control and the opportunity to suppress kochia before seed return.",
+        "My work contributes to integrated and non-chemical weed-management strategies by identifying cropping practices that can reduce kochia seed production and help limit future seedbank inputs.",
+      ],
     },
     {
       name: "Matt Fallis",
       degree: "M.Sc. Student",
       image: "/images/team/Matt.jpg",
-      project: "Remote sensing in soybean",
+      project: "LiDAR-based monitoring of soybean canopy development and weed competition",
+      detailedBio: [
+        "I am an M.Sc. student using UAV-based LiDAR to study soybean canopy development under weed competition and different agronomic management practices. My research examines how seeding rate and row spacing influence canopy closure, crop growth, and yield loss under weedy and weed-free conditions.",
+        "I am interested in using LiDAR-derived canopy height, ground cover, and structural metrics as sensitive plot-level indicators for evaluating soybean weed-management strategies during the growing season.",
+      ],
     },
     {
       name: "Kosar Eivani",
       degree: "M.Sc. Student",
       image: "/images/team/Kosar.jpg",
       project: "Remote sensing for weed management",
+      detailedBio: [
+        "I am an M.Sc. student working on remote-sensing applications for weed management. My research focuses on using field and image-based sensing approaches to characterize weed pressure and support more precise management decisions.",
+      ],
     },
     {
       name: "Indeera Hetti Arachchige",
@@ -199,6 +217,9 @@ export const teamMembers = {
       degree: "M.Sc. Student",
       image: "/images/team/Navroop.jpg",
       project: "Weed-crop interactions in maize",
+      detailedBio: [
+        "I am an M.Sc. student studying weed–crop interactions in maize. My research focuses on understanding how weed competition influences crop performance and how those relationships can inform more effective weed-management strategies.",
+      ],
     },
   ],
 

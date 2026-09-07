@@ -228,99 +228,75 @@ export const galleryImages = [
     "alt": "Research and lab gallery photo 38"
   },
   {
-    "src": "/images/gallery/selected/selected-045.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 39"
-  },
-  {
     "src": "/images/gallery/selected/selected-047.jpg",
     "width": 1800,
     "height": 1355,
-    "alt": "Research and lab gallery photo 40"
-  },
-  {
-    "src": "/images/gallery/selected/selected-049.jpg",
-    "width": 1800,
-    "height": 841,
-    "alt": "Research and lab gallery photo 41"
-  },
-  {
-    "src": "/images/gallery/selected/selected-051.jpg",
-    "width": 1157,
-    "height": 1536,
-    "alt": "Research and lab gallery photo 42"
+    "alt": "Research and lab gallery photo 39"
   },
   {
     "src": "/images/gallery/selected/selected-052.jpg",
     "width": 1536,
     "height": 1157,
-    "alt": "Research and lab gallery photo 43"
-  },
-  {
-    "src": "/images/gallery/selected/selected-053.jpg",
-    "width": 1800,
-    "height": 1200,
-    "alt": "Research and lab gallery photo 44"
+    "alt": "Research and lab gallery photo 40"
   },
   {
     "src": "/images/gallery/selected/selected-054.jpg",
     "width": 1800,
     "height": 1200,
-    "alt": "Research and lab gallery photo 45"
+    "alt": "Research and lab gallery photo 41"
   },
   {
     "src": "/images/gallery/selected/selected-055.jpg",
     "width": 1800,
     "height": 1013,
-    "alt": "Research and lab gallery photo 46"
-  },
-  {
-    "src": "/images/gallery/selected/selected-058.jpg",
-    "width": 1355,
-    "height": 1800,
-    "alt": "Research and lab gallery photo 47"
+    "alt": "Research and lab gallery photo 42"
   },
   {
     "src": "/images/gallery/selected/selected-060.jpg",
     "width": 1200,
     "height": 1600,
-    "alt": "Research and lab gallery photo 48"
+    "alt": "Research and lab gallery photo 43"
   },
   {
     "src": "/images/gallery/selected/selected-062.jpg",
     "width": 1800,
     "height": 1012,
-    "alt": "Research and lab gallery photo 49"
+    "alt": "Research and lab gallery photo 44"
   },
   {
     "src": "/images/gallery/selected/selected-064.jpg",
     "width": 1800,
     "height": 1350,
-    "alt": "Research and lab gallery photo 50"
-  },
-  {
-    "src": "/images/gallery/selected/selected-068.jpg",
-    "width": 1355,
-    "height": 1800,
-    "alt": "Research and lab gallery photo 51"
+    "alt": "Research and lab gallery photo 45"
   },
   {
     "src": "/images/gallery/selected/selected-070.jpg",
     "width": 1800,
     "height": 1200,
-    "alt": "Research and lab gallery photo 52"
+    "alt": "Research and lab gallery photo 46"
   },
   {
     "src": "/images/gallery/selected/selected-072.jpg",
     "width": 1800,
     "height": 1349,
-    "alt": "Research and lab gallery photo 53"
+    "alt": "Research and lab gallery photo 47"
   },
   {
     "src": "/images/gallery/selected/selected-073.jpg",
     "width": 1800,
     "height": 1082,
-    "alt": "Research and lab gallery photo 54"
+    "alt": "Research and lab gallery photo 48"
+  },
+  {
+    "src": "/images/gallery/selected/selected-068.jpg",
+    "width": 1355,
+    "height": 1800,
+    "alt": "Research and lab gallery photo 49"
+  },
+  {
+    "src": "/images/gallery/selected/selected-058.jpg",
+    "width": 1355,
+    "height": 1800,
+    "alt": "Research and lab gallery photo 50"
   }
 ] as const
