@@ -78,10 +78,15 @@ export default async function PeoplePage() {
     currentPosition: member.bio || "",
   }))
 
-  const allStaff: Person[] = [
-    ...teamMembers.staff.map((member) => ({ name: member.name, role: member.role, image: member.image, email: member.email || "" })),
-    ...submittedStaff,
-  ]
+  const staffProfiles: StudentProfile[] = teamMembers.staff.map((member) => ({
+    name: member.name,
+    role: member.role,
+    image: member.image || "",
+    project: member.bio,
+    detailedBio: "detailedBio" in member ? member.detailedBio : undefined,
+  }))
+
+  const allStaff = submittedStaff
 
   const allGradStudents: StudentProfile[] = [
     ...teamMembers.gradStudents.map((student) => ({
@@ -94,7 +99,14 @@ export default async function PeoplePage() {
     ...submittedGradStudents,
   ]
 
-  const allAlumni = [...(teamMembers.alumni || []), ...submittedAlumni]
+  const alumniProfiles: StudentProfile[] = (teamMembers.alumni || []).map((alum) => ({
+    name: alum.name,
+    role: alum.degree,
+    image: alum.image || "",
+    project: "project" in alum ? alum.project : alum.currentPosition,
+    detailedBio: "detailedBio" in alum ? alum.detailedBio : undefined,
+  }))
+  const allAlumni = submittedAlumni
 
   return (
     <>
@@ -127,10 +139,11 @@ export default async function PeoplePage() {
               </div>
             </article>
 
-            {allStaff.length > 0 && (
+            {(staffProfiles.length > 0 || allStaff.length > 0) && (
               <div className="mt-10">
                 <h2 className="mb-5 text-2xl font-semibold tracking-tight">Research Staff</h2>
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                  {staffProfiles.map((member) => <StudentProfileCard key={member.name} student={member} />)}
                   {allStaff.map((member) => <CompactPersonCard key={member.name} person={member} />)}
                 </div>
               </div>
@@ -145,10 +158,11 @@ export default async function PeoplePage() {
               </div>
             )}
 
-            {allAlumni.length > 0 && (
+            {(alumniProfiles.length > 0 || allAlumni.length > 0) && (
               <div className="mt-10">
                 <h2 className="mb-5 text-2xl font-semibold tracking-tight">Alumni & Former Graduate Students</h2>
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                  {alumniProfiles.map((alum) => <StudentProfileCard key={alum.name} student={alum} />)}
                   {allAlumni.map((alum) => <CompactPersonCard key={alum.name} person={{ name: alum.name, role: alum.degree, image: alum.image }} />)}
                 </div>
               </div>

@@ -71,6 +71,11 @@ export const teamMembers = {
         "Machine learning",
       ],
       email: "mujahid.hussain@umanitoba.ca",
+      detailedBio: [
+        "I am a Postdoctoral Fellow in the Department of Plant Science at the University of Manitoba. I hold a Ph.D. in Agronomy from China Agricultural University and previously completed postdoctoral research at Shandong University of Technology in China.",
+        "My research focuses on precision agriculture, crop production, and agricultural aviation technologies. I integrate UAV-based multispectral and LiDAR imaging with machine learning for weed detection and field-scale crop and weed mapping to develop site-specific management strategies.",
+        "I also have experience in plant growth regulators, nanomaterials, and spray technologies, particularly approaches that improve droplet deposition and agrochemical application efficiency. My broader goal is to improve crop productivity while reducing environmental impacts through precision input management.",
+      ],
     },
     {
       name: "Dr. Kenneth Anku",
@@ -85,6 +90,11 @@ export const teamMembers = {
         "Precision agriculture",
       ],
       email: "kenneth.anku@umanitoba.ca",
+      detailedBio: [
+        "I am a plant scientist with interdisciplinary experience in plant physiology, remote sensing, and precision agriculture. I completed my B.Sc. in Crop Science at the University of Ghana, an M.Sc. in Biology at the Norwegian University of Science and Technology, and my Ph.D. at Dalhousie University in 2024.",
+        "My doctoral research focused on remote-sensing-based assessment of diseases, phenology, plant phenotypes, and nitrogen status in wild blueberry production systems. I later contributed to applied research on reducing greenhouse-gas emissions and enhancing carbon sequestration in the wild blueberry industry.",
+        "At the University of Manitoba, my current work integrates plant physiology, remote sensing, and machine learning to model weed-induced yield losses, improve weed detection, and advance precision agriculture. My research includes yield-prediction modelling, image segmentation, and agricultural data analytics.",
+      ],
     },
     {
       name: "Mike Runzika",
@@ -98,7 +108,12 @@ export const teamMembers = {
         "Experimental design",
         "Agronomy",
       ],
-      email: "runzika@umanitoba.ca",
+      email: "mick.runzika@umanitoba.ca",
+      detailedBio: [
+        "I am an Agricultural Research Technician with more than nine years of experience supporting large-scale agricultural research projects across Canada, including work with Bayer Crop Science and Farmers Business Network.",
+        "My work includes designing and establishing field experiments, implementing research protocols, collecting and handling samples, maintaining research equipment, and organizing high-quality field and laboratory data. I have supported research in crop protection, plant health, soil management, and emerging agricultural technologies.",
+        "I work closely with researchers and field teams to keep experiments running consistently from setup through final data collection, with a strong focus on accuracy, organization, and scientific integrity.",
+      ],
     },
   ],
 
@@ -229,6 +244,12 @@ export const teamMembers = {
       degree: "M.Sc., University of Manitoba",
       image: "/images/team/Uthpala.jpg",
       currentPosition: "DAWL alumna",
+      project: "Integrated crop management, weed phenology, and weed seed persistence in spring wheat",
+      detailedBio: [
+        "I completed my Master’s degree in Weed Science at the University of Manitoba. My research focused on the effects of Integrated Crop Management (ICM) on weed phenology and weed seed persistence, with the goal of optimizing cultural and nutrient-management strategies to improve weed control and crop competitiveness in spring wheat systems.",
+        "My work contributed to integrated weed-management approaches that use crop and nutrient management to influence weed development and persistence and reduce reliance on herbicides.",
+        "My research and academic work was recognized with the First Place M.Sc. Graduate Student Scholarship from the Canadian Weed Science Society in 2025, the Ian N. Morrison Award for Advanced Studies in Crop Protection in 2025, and the University of Manitoba Graduate Fellowship for 2023–2024. I was also Second Runner-Up in the Agronomy and Cropping Systems oral session at the 40th Plant Science Graduate Student Symposium in 2025.",
+      ],
     },
   ],
 }
